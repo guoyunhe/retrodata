@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::prefix('api')->group(function () {
+//     Route::resources([
+//         'images' => 'App\Http\Controllers\ImageController',
+//         'tags' => 'App\Http\Controllers\TagController',
+//         'users' => 'App\Http\Controllers\UserController',
+//     ]);
+// });
+
+Route::get('/{any?}', function () {
+    return view('app');
+})->where('any', '.*');
