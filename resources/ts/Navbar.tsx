@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: any) =>
     createStyles({
         root: {
             backdropFilter: "blur(32px)",
-            backgroundColor: "#FFFFFF88",
+            backgroundColor: "#FFFFFF88 !important",
         },
         grow: {
             flexGrow: 1,

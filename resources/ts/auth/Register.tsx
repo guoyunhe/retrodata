@@ -10,6 +10,7 @@ import TextField from "@mui/material/TextField";
 import { register } from "./service";
 import { useAuth } from "./AuthContext";
 import AuthLayout from "./AuthLayout";
+import { fetchUser } from "./services/fetchUser";
 
 export interface RegisterErrors {
     message: string;
@@ -33,6 +34,7 @@ export default function Register() {
         e.preventDefault();
         setLoading(true);
         register(name, email, password, passwordConfirmation)
+            .then(() => fetchUser())
             .then((res) => {
                 setLoading(false);
                 setUser(res.data);

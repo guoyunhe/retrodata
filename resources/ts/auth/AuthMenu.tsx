@@ -10,6 +10,7 @@ import Avatar from "@mui/material/Avatar";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useAuth } from "./AuthContext";
 import { logout } from "./service";
+import Button from "@mui/material/Button";
 
 const useStyles = makeStyles((theme: any) =>
     createStyles({
@@ -39,72 +40,74 @@ export default function AuthMenu() {
         logout().then(() => setUser(null));
     };
 
-    return (
-        <>
-            <IconButton
-                edge="end"
-                color="inherit"
-                aria-controls="auth-menu"
-                aria-haspopup="true"
-                onClick={handleClick}
-            >
-                {user && user.avatar ? (
-                    <Avatar
-                        className={classes.avatar}
-                        src={user.avatar.file_url_small}
-                    />
-                ) : (
-                    <AccountCircleIcon />
-                )}
-            </IconButton>
-            <Menu
-                id="auth-menu"
-                anchorEl={anchorEl}
-                keepMounted
-                open={Boolean(anchorEl)}
-                onClose={handleClose}
-            >
-                {user
-                    ? [
-                          <MenuItem
-                              key="profile"
-                              onClick={handleClose}
-                              component={RRLink}
-                              to={"/users/" + user.id}
-                          >
-                              Profile
-                          </MenuItem>,
-                          <MenuItem
-                              key="settings"
-                              onClick={handleClose}
-                              component={RRLink}
-                              to="/settings"
-                          >
-                              Settings
-                          </MenuItem>,
-                          <MenuItem key="logout" onClick={handleLogout}>
-                              Logout
-                          </MenuItem>,
-                      ]
-                    : [
-                          <MenuItem
-                              key="login"
-                              onClick={handleClose}
-                              component={RRLink}
-                              to="/login"
-                          >
-                              Login
-                          </MenuItem>,
-                          <MenuItem
-                              key="register"
-                              onClick={handleClose}
-                              component={RRLink}
-                              to="/register"
-                          >
-                              Register
-                          </MenuItem>,
-                      ]}
-            </Menu>
-        </>
-    );
+    if (user) {
+        return (
+            <>
+                <IconButton
+                    edge="end"
+                    color="inherit"
+                    aria-controls="auth-menu"
+                    aria-haspopup="true"
+                    onClick={handleClick}
+                >
+                    {user && user.avatar ? (
+                        <Avatar
+                            className={classes.avatar}
+                            src={user.avatar.file_url_small}
+                        />
+                    ) : (
+                        <AccountCircleIcon />
+                    )}
+                </IconButton>
+                <Menu
+                    id="auth-menu"
+                    anchorEl={anchorEl}
+                    keepMounted
+                    open={Boolean(anchorEl)}
+                    onClose={handleClose}
+                >
+                    <MenuItem
+                        key="profile"
+                        onClick={handleClose}
+                        component={RRLink}
+                        to={"/users/" + user.id}
+                    >
+                        Profile
+                    </MenuItem>
+                    <MenuItem
+                        key="settings"
+                        onClick={handleClose}
+                        component={RRLink}
+                        to="/settings"
+                    >
+                        Settings
+                    </MenuItem>
+                    <MenuItem key="logout" onClick={handleLogout}>
+                        Logout
+                    </MenuItem>
+                </Menu>
+            </>
+        );
+    } else {
+        return (
+            <>
+                <Button
+                    color="inherit"
+                    onClick={handleClose}
+                    component={RRLink}
+                    to="/login"
+                >
+                    Login
+                </Button>
+                <Button
+                    color="inherit"
+                    onClick={handleClose}
+                    component={RRLink}
+                    to="/register"
+                >
+                    Register
+                </Button>
+            </>
+        );
+    }
 }

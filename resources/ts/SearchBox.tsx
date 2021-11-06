@@ -8,11 +8,12 @@ import SearchIcon from "@mui/icons-material/Search";
 const useStyles = makeStyles((theme: any) =>
     createStyles({
         root: {
+            display: "flex",
             position: "relative",
             borderRadius: theme.shape.borderRadius,
-            backgroundColor: "#00000008",
+            backgroundColor: "#0000000F",
             "&:hover": {
-                backgroundColor: "#000000F0",
+                backgroundColor: "#0000001F",
             },
             marginRight: theme.spacing(2),
             marginLeft: 0,
@@ -31,19 +32,6 @@ const useStyles = makeStyles((theme: any) =>
             alignItems: "center",
             justifyContent: "center",
         },
-        inputRoot: {
-            color: "inherit",
-        },
-        inputInput: {
-            padding: theme.spacing(1, 1, 1, 0),
-            // vertical padding + font size from icon
-            paddingLeft: `calc(1em + ${theme.spacing(3)}px)`,
-            transition: theme.transitions.create("width"),
-            width: "100%",
-            [theme.breakpoints.up("md")]: {
-                width: "20ch",
-            },
-        },
     })
 );
 
@@ -54,13 +42,7 @@ export default function SearchBox() {
             <div className={classes.icon}>
                 <SearchIcon />
             </div>
-            <InputBase
-                placeholder="Search"
-                classes={{
-                    root: classes.inputRoot,
-                    input: classes.inputInput,
-                }}
-            />
+            <InputBase placeholder="Search" sx={{ pl: 4, pr: 1 }} />
         </div>
     );
 }

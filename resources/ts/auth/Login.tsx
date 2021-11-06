@@ -14,6 +14,7 @@ import TextField from "@mui/material/TextField";
 import { login } from "./service";
 import { useAuth } from "./AuthContext";
 import AuthLayout from "./AuthLayout";
+import { fetchUser } from "./services/fetchUser";
 
 const useStyles = makeStyles({
     buttonRow: {
@@ -43,6 +44,7 @@ export default function Login() {
         e.preventDefault();
         setLoading(true);
         login(email, password, remember)
+            .then(() => fetchUser())
             .then((res) => {
                 setLoading(false);
                 setUser(res.data);
