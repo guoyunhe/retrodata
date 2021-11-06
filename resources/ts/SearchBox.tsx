@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme: any) =>
     createStyles({
         root: {
             display: "flex",
+            alignItems: "center",
             position: "relative",
             borderRadius: theme.shape.borderRadius,
             backgroundColor: "#0000000F",
@@ -17,20 +18,10 @@ const useStyles = makeStyles((theme: any) =>
             },
             marginRight: theme.spacing(2),
             marginLeft: 0,
-            width: "100%",
             [theme.breakpoints.up("sm")]: {
                 marginLeft: theme.spacing(3),
                 width: "auto",
             },
-        },
-        icon: {
-            padding: theme.spacing(0, 1),
-            height: "100%",
-            position: "absolute",
-            pointerEvents: "none",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
         },
     })
 );
@@ -38,11 +29,9 @@ const useStyles = makeStyles((theme: any) =>
 export default function SearchBox() {
     const classes = useStyles();
     return (
-        <div className={classes.root}>
-            <div className={classes.icon}>
-                <SearchIcon />
-            </div>
-            <InputBase placeholder="Search" sx={{ pl: 4, pr: 1 }} />
-        </div>
+        <label className={classes.root}>
+            <SearchIcon sx={{ ml: 1 }} />
+            <InputBase placeholder="Search" sx={{ px: 1 }} />
+        </label>
     );
 }
