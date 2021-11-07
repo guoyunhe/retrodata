@@ -9,7 +9,11 @@ import Banner from "./images/Banner";
 export default function NotFound() {
     return (
         <div>
-            <Banner src="https://source.unsplash.com/_Q95YSuAAno/1920x1080" />
+            <Banner
+                src="https://source.unsplash.com/G85VuTpw6jg/1920x1080"
+                width={1920}
+                height={1080}
+            />
             <Container maxWidth="sm">
                 <div>
                     <Typography variant="h1">Not Found</Typography>
