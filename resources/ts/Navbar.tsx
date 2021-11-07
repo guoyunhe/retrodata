@@ -75,12 +75,8 @@ export default function Navbar({}: NavbarProps) {
                 </Link>
                 <SearchBox />
                 <div className={classes.sectionDesktop}>
-                    <Button
-                        color="inherit"
-                        component={RRLink}
-                        to="/organizations"
-                    >
-                        Organizations
+                    <Button color="inherit" component={RRLink} to="/labs">
+                        Labs
                     </Button>
                     <Button color="inherit" component={RRLink} to="/about">
                         About

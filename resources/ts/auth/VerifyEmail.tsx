@@ -9,7 +9,7 @@ import Alert from "@mui/material/Alert";
 import { useAuth } from "./AuthContext";
 import AuthLayout from "./AuthLayout";
 import { resendEmail } from "./service";
-import { Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 interface Result {
     success: boolean;
@@ -63,6 +63,9 @@ export default function VerifyEmail() {
                     onClick={handleSubmit}
                 >
                     Resend Verification Email
+                </Button>
+                <Button component={Link} to="/" sx={{ ml: 1 }}>
+                    Skip
                 </Button>
             </Box>
             {typeof result === "boolean" &&

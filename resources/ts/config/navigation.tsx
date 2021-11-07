@@ -14,8 +14,8 @@ const navigationConfig: {
     bottomItems: [
         { text: "Home", href: "/", icon: <HomeIcon /> },
         {
-            text: "Organizations",
-            href: "/orgs",
+            text: "Labs",
+            href: "/labs",
 
             icon: <PeopleIcon />,
         },

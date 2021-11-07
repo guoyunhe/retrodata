@@ -20,7 +20,11 @@ export default function AuthLayout({ children }: AuthLayoutProps) {
 
     return (
         <div className={classes.root}>
-            <Banner src="https://source.unsplash.com/YP2MNNId-Qs/1920x480" />
+            <Banner
+                src="https://source.unsplash.com/YP2MNNId-Qs/1920x480"
+                width="1920"
+                height="480"
+            />
             <Container maxWidth="xs">
                 <div className={classes.content}>{children}</div>
             </Container>

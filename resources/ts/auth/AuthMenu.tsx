@@ -3,14 +3,13 @@ import { Link as RRLink } from "react-router-dom";
 
 import { makeStyles, createStyles } from "@mui/styles";
 
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import IconButton from "@mui/material/IconButton";
-import Avatar from "@mui/material/Avatar";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useAuth } from "./AuthContext";
 import { logout } from "./service";
-import Button from "@mui/material/Button";
 
 const useStyles = makeStyles((theme: any) =>
     createStyles({
@@ -43,14 +42,13 @@ export default function AuthMenu() {
     if (user) {
         return (
             <>
-                <IconButton
-                    edge="end"
+                <Button
                     color="inherit"
                     aria-controls="auth-menu"
                     aria-haspopup="true"
                     onClick={handleClick}
                 >
-                    {user && user.avatar ? (
+                    {user.avatar ? (
                         <Avatar
                             className={classes.avatar}
                             src={user.avatar.file_url_small}
@@ -58,7 +56,8 @@ export default function AuthMenu() {
                     ) : (
                         <AccountCircleIcon />
                     )}
-                </IconButton>
+                    {user.name}
+                </Button>
                 <Menu
                     id="auth-menu"
                     anchorEl={anchorEl}
