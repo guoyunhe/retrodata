@@ -51,7 +51,7 @@ export default function AuthMenu() {
                     {user.avatar ? (
                         <Avatar
                             className={classes.avatar}
-                            src={user.avatar.file_url_small}
+                            src={user.avatar.url}
                         />
                     ) : (
                         <AccountCircleIcon />

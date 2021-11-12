@@ -1,5 +1,6 @@
-import React, { useState, useContext, ReactNode } from "react";
+import React, { useState, useContext, ReactNode, useEffect } from "react";
 import { User } from "../types/user";
+import { updateUser } from "./services/updateUser";
 
 export interface AuthProps {
     user: User | null;
@@ -8,7 +9,7 @@ export interface AuthProps {
 
 const AuthContext = React.createContext<AuthProps>({
     user: null,
-    setUser: (user: User | null) => {}
+    setUser: (user: User | null) => {},
 });
 
 export interface AuthProviderProps {
@@ -17,6 +18,12 @@ export interface AuthProviderProps {
 
 export function AuthProvider({ children }: AuthProviderProps) {
     const [user, setUser] = useState<User | null>((window as any).user);
+    useEffect(() => {
+        (window as any).user = user;
+        if (user) {
+            updateUser(user);
+        }
+    }, [user]);
     return (
         <AuthContext.Provider value={{ user, setUser }}>
             {children}

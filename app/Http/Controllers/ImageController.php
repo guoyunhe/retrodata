@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Image;
 use Illuminate\Http\Request;
+use Gmagick;
 
 class ImageController extends Controller
 {
@@ -44,15 +45,15 @@ class ImageController extends Controller
         ]);
 
 
-        $path = $request->file('image')->store('public/images');
-        $thumb_path = $path . '_thumb';
-        $gmagick = new Gmagick($path);
+        $path = $request->file('image')->store('img');
+        $full_path = storage_path('app/'.$path);
+        $gmagick = new Gmagick($full_path);
         if ($request->boolean('cropped', false)) {
             $gmagick->cropthumbnailimage($request->input('width', 1200), $request->input('height', 1200));
         } else {
             $gmagick->thumbnailimage($request->input('width', 1200), $request->input('height', 1200), true);
         }
-        $gmagick->write($path);
+        $gmagick->write($full_path);
 
         $image = new Image;
 

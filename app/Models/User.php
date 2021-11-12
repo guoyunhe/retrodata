@@ -41,4 +41,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * The relationships that should always be loaded.
+     *
+     * @var array
+     */
+    protected $with = ['avatar'];
+
+    /**
+     * Get the avatar.
+     */
+    public function avatar() {
+        return $this->belongsTo(Image::class);
+    }
 }

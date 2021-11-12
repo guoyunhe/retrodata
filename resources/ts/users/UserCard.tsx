@@ -27,7 +27,7 @@ export default function UserCard({ user }: UserCardProps) {
                 <CardMedia
                     component="img"
                     alt={user.name}
-                    image={user?.portrait?.file_url_medium}
+                    image={user?.avatar?.url}
                     title={user.name}
                 />
                 <CardContent>

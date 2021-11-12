@@ -1,6 +1,7 @@
 /node_modules
 /public/js/*.js.map
 /public/hot
+/public/img
 /public/storage
 /storage/*.key
 /vendor

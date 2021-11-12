@@ -104,7 +104,7 @@ export default function ImageUploadCard({
                 className={classes.actionArea}
                 onClick={handleSelect}
             >
-                {localImage ? (
+                {localImage || image ? (
                     <CardMedia
                         className={classes.image}
                         component="img"

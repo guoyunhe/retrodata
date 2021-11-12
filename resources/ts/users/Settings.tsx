@@ -9,6 +9,7 @@ import { useAuth } from "../auth/AuthContext";
 import ImageUploadCard from "../images/ImageUploadCard";
 import ImageUploadGrid from "../images/ImageUploadGrid";
 import { upload } from "../images/service";
+import { User } from "../types/user";
 
 const useStyles = makeStyles((theme: any) =>
     createStyles({
@@ -27,9 +28,18 @@ export default function Settings() {
             <Typography variant="h1">Settings</Typography>
             <Typography variant="h2">Images</Typography>
             <ImageUploadCard
+                image={user?.avatar?.url}
                 onChange={(file) => {
-                    if (file) {
-                        upload(file);
+                    if (file && user) {
+                        upload(file).then((res) => {
+                            const avatar = res.data;
+                            const newUser: User = {
+                                ...user,
+                                avatar,
+                                avatar_id: avatar.id,
+                            };
+                            setUser(newUser);
+                        });
                     }
                 }}
             />
