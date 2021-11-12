@@ -31,7 +31,7 @@ export default function Settings() {
                 image={user?.avatar?.url}
                 onChange={(file) => {
                     if (file && user) {
-                        upload(file).then((res) => {
+                        upload(file, 300, 300, true).then((res) => {
                             const avatar = res.data;
                             const newUser: User = {
                                 ...user,
