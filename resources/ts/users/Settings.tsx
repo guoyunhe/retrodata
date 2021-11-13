@@ -25,8 +25,10 @@ export default function Settings() {
 
     return (
         <Container className={classes.root} maxWidth="sm">
-            <Typography variant="h1">Settings</Typography>
-            <Typography variant="h2">Images</Typography>
+            <Typography variant="h1" sx={{ mt: 5 }}>
+                Settings
+            </Typography>
+            <Typography variant="h2">Avatar</Typography>
             <ImageUploadCard
                 image={user?.avatar?.url}
                 onChange={(file) => {
@@ -44,6 +46,7 @@ export default function Settings() {
                 }}
             />
             <ImageUploadGrid />
+            <Typography variant="h2">User Information</Typography>
         </Container>
     );
 }
