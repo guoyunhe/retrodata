@@ -4,9 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\University;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class UniversityController extends Controller
 {
+    /**
+     * Instantiate a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index', 'show');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +25,7 @@ class UniversityController extends Controller
      */
     public function index()
     {
-        //
+        return University::all();
     }
 
     /**
@@ -25,7 +36,22 @@ class UniversityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'contact_name' => 'required|string|max:255',
+            'contact_email' => 'required|email|max:255',
+            'contact_phone' => 'required|string|max:255',
+        ]);
+
+        $university = University::create([
+            'name' => $request->input('name'),
+            'slug' => Str::of($request->input('name'))->slug('-'),
+            'contact_name' => $request->input('contact_name'),
+            'contact_email' => $request->input('contact_email'),
+            'contact_phone' => $request->input('contact_phone'),
+        ]);
+
+        return $university;
     }
 
     /**
@@ -36,7 +62,7 @@ class UniversityController extends Controller
      */
     public function show(University $university)
     {
-        //
+        return $university;
     }
 
     /**

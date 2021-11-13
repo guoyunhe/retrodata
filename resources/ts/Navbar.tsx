@@ -17,10 +17,7 @@ import AuthMenu from "./auth/AuthMenu";
 
 const useStyles = makeStyles((theme: any) =>
     createStyles({
-        root: {
-            backdropFilter: "blur(32px)",
-            backgroundColor: "#FFFFFF88 !important",
-        },
+        root: {},
         grow: {
             flexGrow: 1,
         },
@@ -53,7 +50,7 @@ export interface NavbarProps {}
 export default function Navbar({}: NavbarProps) {
     const classes = useStyles();
     return (
-        <AppBar className={classes.root} position="fixed" color="transparent">
+        <AppBar className={classes.root} position="sticky" color="transparent">
             <Toolbar variant="dense">
                 <IconButton
                     edge="start"

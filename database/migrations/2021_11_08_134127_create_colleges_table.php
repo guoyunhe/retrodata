@@ -15,8 +15,15 @@ class CreateCollegesTable extends Migration
     {
         Schema::create('colleges', function (Blueprint $table) {
             $table->id();
+            $table->string('slug');
+            $table->string('name');
+            $table->string('name_en')->nullable();
+            $table->foreignId('university_id')->nullable()->constrained('universities');
+            $table->foreignId('logo_id')->nullable()->constrained('images');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->unique('university_id', 'slug');
         });
     }
 

@@ -45,7 +45,7 @@ class ImageController extends Controller
         ]);
 
 
-        $path = $request->file('image')->store('img');
+        $path = $request->file('image')->store('public');
         $full_path = storage_path('app/'.$path);
         $gmagick = new Gmagick($full_path);
         if ($request->boolean('cropped', false)) {

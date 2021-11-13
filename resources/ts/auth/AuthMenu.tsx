@@ -5,19 +5,15 @@ import { makeStyles, createStyles } from "@mui/styles";
 
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useAuth } from "./AuthContext";
 import { logout } from "./service";
 
 const useStyles = makeStyles((theme: any) =>
     createStyles({
-        avatar: {
-            width: theme.spacing(4),
-            height: theme.spacing(4),
-            margin: theme.spacing(-0.5),
-        },
+        avatar: {},
     })
 );
 
@@ -42,22 +38,15 @@ export default function AuthMenu() {
     if (user) {
         return (
             <>
-                <Button
+                <IconButton
                     color="inherit"
                     aria-controls="auth-menu"
                     aria-haspopup="true"
                     onClick={handleClick}
+                    sx={{ p: 0, ml: 1 }}
                 >
-                    {user.avatar ? (
-                        <Avatar
-                            className={classes.avatar}
-                            src={user.avatar.url}
-                        />
-                    ) : (
-                        <AccountCircleIcon />
-                    )}
-                    {user.name}
-                </Button>
+                    <Avatar className={classes.avatar} src={user.avatar?.url} />
+                </IconButton>
                 <Menu
                     id="auth-menu"
                     anchorEl={anchorEl}
@@ -71,7 +60,7 @@ export default function AuthMenu() {
                         component={RRLink}
                         to={"/users/" + user.id}
                     >
-                        Profile
+                        {user.name}
                     </MenuItem>
                     <MenuItem
                         key="settings"

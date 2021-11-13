@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\UniversityController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +34,10 @@ Route::middleware('auth:sanctum')->put('/user', function (Request $request) {
     return $user;
 });
 
+Route::get('/users', function (Request $request) {
+    return User::all();
+});
+
 Route::resource('images', ImageController::class);
+
+Route::resource('universities', UniversityController::class);

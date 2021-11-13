@@ -15,8 +15,15 @@ class CreateLaboratoriesTable extends Migration
     {
         Schema::create('laboratories', function (Blueprint $table) {
             $table->id();
+            $table->string('slug');
+            $table->string('name');
+            $table->string('name_en')->nullable();
+            $table->foreignId('college_id')->nullable()->constrained('colleges');
+            $table->foreignId('logo_id')->nullable()->constrained('images');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->unique('college_id', 'slug');
         });
     }
 
