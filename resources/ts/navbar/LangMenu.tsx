@@ -2,6 +2,7 @@ import LanguageIcon from "@mui/icons-material/Language";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import axios from "axios";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import langs from "../locales/langs.json";
@@ -46,6 +47,8 @@ export function LangMenu() {
                         onClick={() => {
                             localStorage.setItem("language", lang.value);
                             i18n.changeLanguage(lang.value);
+                            axios.defaults.headers.common["X-Language"] =
+                                lang.value;
                             setAnchorEl(null);
                         }}
                         selected={lang.value === currentLang?.value}

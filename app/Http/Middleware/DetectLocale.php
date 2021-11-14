@@ -19,6 +19,8 @@ class DetectLocale
     {
         if ($request->cookie('language')) {
             App::setLocale($request->cookie('language'));
+        } else if ($request->header('X-Language')) {
+            App::setLocale($request->header('X-Language'));
         } else {
             $prefered_locale = substr($request->header('Accept-Language'), 0, 2);
             if ($prefered_locale === 'zh') {
