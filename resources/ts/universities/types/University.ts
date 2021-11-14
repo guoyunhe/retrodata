@@ -4,6 +4,7 @@ import { Model } from "../../types/model";
 export interface University extends Model {
     slug: string;
     name: string;
+    name_en?: string | null;
     logo: Image | null;
     logo_id: number | null;
     contact_name: string | null;

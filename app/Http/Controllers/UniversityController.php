@@ -45,7 +45,6 @@ class UniversityController extends Controller
 
         $university = University::create([
             'name' => $request->input('name'),
-            'slug' => Str::of($request->input('name'))->slug('-'),
             'contact_name' => $request->input('contact_name'),
             'contact_email' => $request->input('contact_email'),
             'contact_phone' => $request->input('contact_phone'),

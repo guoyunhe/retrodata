@@ -1,38 +1,46 @@
+import AddIcon from "@mui/icons-material/Add";
+import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import React, { useEffect, useState } from "react";
-
-import Banner from "./images/Banner";
-import Page from "./Page";
+import { useTranslation } from "react-i18next";
 import { queryUniversityList } from "./universities/services/queryUniversityList";
 import { University } from "./universities/types/University";
 import { UniversitiesList } from "./universities/UniversitiesList";
 import { UniversityCreateDialog } from "./universities/UniversityCreateDialog";
 
 export default function Home() {
+    const { t } = useTranslation();
     const [open, setOpen] = useState(false);
     const [universities, setUniversities] = useState<University[]>([]);
 
-    useEffect(() => {
+    const refresh = () => {
         queryUniversityList().then((res) => {
             setUniversities(res.data);
         });
+    };
+
+    useEffect(() => {
+        refresh();
     }, []);
 
     return (
-        <Page>
-            <Banner
-                src="https://source.unsplash.com/RnCPiXixooY/1920x480"
-                width="1920"
-                height="480"
-            />
-            <h1>More conntent is comming soon...</h1>
-
-            <Button onClick={() => setOpen(true)}>Create University</Button>
+        <Box sx={{ background: "#f0f0f0" }}>
+            <Box display="flex" justifyContent="center" sx={{ my: 3 }}>
+                <Button
+                    size="large"
+                    variant="contained"
+                    onClick={() => setOpen(true)}
+                    startIcon={<AddIcon />}
+                >
+                    {t("Create University")}
+                </Button>
+            </Box>
             <UniversityCreateDialog
                 open={open}
                 onClose={() => setOpen(false)}
+                onSuccess={() => refresh()}
             />
             <UniversitiesList universities={universities} />
-        </Page>
+        </Box>
     );
 }

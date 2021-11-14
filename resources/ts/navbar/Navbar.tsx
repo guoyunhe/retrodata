@@ -8,6 +8,7 @@ import Link from "@mui/material/Link";
 import Toolbar from "@mui/material/Toolbar";
 import { createStyles, makeStyles } from "@mui/styles";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Link as RRLink } from "react-router-dom";
 import AuthMenu from "../auth/AuthMenu";
 import SearchBox from "../SearchBox";
@@ -47,6 +48,7 @@ export interface NavbarProps {}
 
 export default function Navbar({}: NavbarProps) {
     const classes = useStyles();
+    const { t } = useTranslation();
     return (
         <AppBar className={classes.root} position="sticky" color="transparent">
             <Toolbar variant="dense">
@@ -71,10 +73,13 @@ export default function Navbar({}: NavbarProps) {
                 <SearchBox />
                 <div className={classes.sectionDesktop}>
                     <Button color="inherit" component={RRLink} to="/labs">
-                        Labs
+                        {t("Home")}
+                    </Button>
+                    <Button color="inherit" component={RRLink} to="/labs">
+                        {t("Labs")}
                     </Button>
                     <Button color="inherit" component={RRLink} to="/about">
-                        About
+                        {t("About")}
                     </Button>
                 </div>
                 <div className={classes.grow} />

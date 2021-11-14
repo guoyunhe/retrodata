@@ -1,14 +1,26 @@
 {
+    "About": "About",
     "By joining, you agree to the <2>Terms</2> and <6>Privacy Policy</6>": "By joining, you agree to the <2>Terms</2> and <6>Privacy Policy</6>",
+    "Cancel": "Cancel",
     "Confirm Password": "Confirm Password",
+    "Contact email address": "Contact email address",
+    "Contact Information": "Contact Information",
+    "Contact person name": "Contact person name",
+    "Contact phone number": "Contact phone number",
+    "Create": "Create",
+    "Create University": "Create University",
     "Email": "Email",
     "Forgot Your Password?": "Forgot Your Password?",
+    "Home": "Home",
+    "Labs": "Labs",
     "Login": "Login",
     "Logout": "Logout",
     "Name": "Name",
+    "Name of university": "Name of university",
     "Password": "Password",
     "Register": "Register",
     "Remember me": "Remember me",
     "Search": "Search",
-    "Settings": "Settings"
+    "Settings": "Settings",
+    "University Information": "University Information"
 }

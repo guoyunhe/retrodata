@@ -15,7 +15,7 @@ class CreateUniversitiesTable extends Migration
     {
         Schema::create('universities', function (Blueprint $table) {
             $table->id();
-            $table->string('slug')->unique();
+            $table->string('slug')->unique()->nullable();
             $table->string('name');
             $table->string('name_en')->nullable();
             $table->foreignId('logo_id')->nullable()->constrained('images');

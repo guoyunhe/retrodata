@@ -1,17 +1,9 @@
-import React from "react";
 import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import Avatar from "@mui/material/Avatar";
-import IconButton from "@mui/material/IconButton";
+import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { red } from "@mui/material/colors";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
-
+import React from "react";
+import { Link } from "react-router-dom";
 import { University } from "./types/University";
 
 export interface UniversityCardProps {
@@ -20,46 +12,30 @@ export interface UniversityCardProps {
 
 export function UniversityCard({ university }: UniversityCardProps) {
     return (
-        <Card>
-            <CardHeader
-                avatar={
-                    <Avatar
-                        sx={{ bgcolor: red[500] }}
-                        aria-label="recipe"
-                        src={university.logo?.url}
-                    >
-                        {university.name.charAt(0)}
-                    </Avatar>
-                }
-                action={
-                    <IconButton aria-label="settings">
-                        <MoreVertIcon />
-                    </IconButton>
-                }
-                title={university.name}
-                subheader={"Espoo, Finland"}
-            />
+        <Card
+            sx={{ display: "flex", height: "150px" }}
+            component={Link}
+            to={"/universities/" + university.id}
+        >
             <CardMedia
                 component="img"
-                height="194"
-                image="/static/images/cards/paella.jpg"
-                alt="Paella dish"
+                height="150px"
+                width="150px"
+                image={
+                    university.logo?.url ||
+                    "/img/raychel-sanner-YP2MNNId-Qs-unsplash.jpg"
+                }
+                alt={university.name}
+                sx={{
+                    flex: "0 0 150px",
+                }}
             />
             <CardContent>
-                <Typography variant="body2" color="text.secondary">
-                    This impressive paella is a perfect party dish and a fun
-                    meal to cook together with your guests. Add 1 cup of frozen
-                    peas along with the mussels, if you like.
+                <Typography variant="h5">{university.name}</Typography>
+                <Typography variant="subtitle1" color="text.secondary">
+                    {university.name_en}
                 </Typography>
             </CardContent>
-            <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
-                    <FavoriteIcon />
-                </IconButton>
-                <IconButton aria-label="share">
-                    <ShareIcon />
-                </IconButton>
-            </CardActions>
         </Card>
     );
 }

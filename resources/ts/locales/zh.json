@@ -1,14 +1,26 @@
 {
+    "About": "关于",
     "By joining, you agree to the <2>Terms</2> and <6>Privacy Policy</6>": "加入表示您同意<2>条款</2>和<6>隐私政策</6>",
+    "Cancel": "取消",
     "Confirm Password": "确认密码",
+    "Contact email address": "联系人邮箱",
+    "Contact Information": "联系人信息",
+    "Contact person name": "联系人姓名",
+    "Contact phone number": "联系人号码",
+    "Create": "创建",
+    "Create University": "新建大学",
     "Email": "邮箱",
     "Forgot Your Password?": "忘记密码？",
+    "Home": "首页",
+    "Labs": "实验室",
     "Login": "登录",
     "Logout": "注销",
     "Name": "姓名",
+    "Name of university": "大学名称",
     "Password": "密码",
     "Register": "注册",
     "Remember me": "记住我",
     "Search": "搜索",
-    "Settings": "设置"
+    "Settings": "设置",
+    "University Information": "大学信息"
 }
