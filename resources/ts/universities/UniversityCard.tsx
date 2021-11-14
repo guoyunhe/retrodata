@@ -20,7 +20,7 @@ export interface UniversityCardProps {
 
 export function UniversityCard({ university }: UniversityCardProps) {
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card>
             <CardHeader
                 avatar={
                     <Avatar

@@ -1,11 +1,10 @@
-import React from "react";
-
-import { makeStyles, createStyles } from "@mui/styles";
-
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-
+import { createStyles, makeStyles } from "@mui/styles";
+import React from "react";
+import { useTranslation } from "react-i18next";
 import { useAuth } from "../auth/AuthContext";
+import { updateUser } from "../auth/services/updateUser";
 import ImageUploadCard from "../images/ImageUploadCard";
 import ImageUploadGrid from "../images/ImageUploadGrid";
 import { upload } from "../images/service";
@@ -22,11 +21,12 @@ const useStyles = makeStyles((theme: any) =>
 export default function Settings() {
     const classes = useStyles();
     const { user, setUser } = useAuth();
+    const { t, i18n } = useTranslation();
 
     return (
         <Container className={classes.root} maxWidth="sm">
             <Typography variant="h1" sx={{ mt: 5 }}>
-                Settings
+                {t("Settings")}
             </Typography>
             <Typography variant="h2">Avatar</Typography>
             <ImageUploadCard
@@ -40,6 +40,7 @@ export default function Settings() {
                                 avatar,
                                 avatar_id: avatar.id,
                             };
+                            updateUser(newUser);
                             setUser(newUser);
                         });
                     }

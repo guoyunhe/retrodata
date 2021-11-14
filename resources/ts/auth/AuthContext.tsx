@@ -20,9 +20,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
     const [user, setUser] = useState<User | null>((window as any).user);
     useEffect(() => {
         (window as any).user = user;
-        if (user) {
-            updateUser(user);
-        }
     }, [user]);
     return (
         <AuthContext.Provider value={{ user, setUser }}>

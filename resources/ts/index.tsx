@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./config/bootstrap";
 import App from "./App";
+import "./config/bootstrap";
+import "./config/i18n";
 
 const root = document.getElementById("app-root");
 

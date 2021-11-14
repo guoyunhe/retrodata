@@ -17,6 +17,7 @@ export default function Home() {
             setUniversities(res.data);
         });
     }, []);
+
     return (
         <Page>
             <Banner

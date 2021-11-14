@@ -1,9 +1,8 @@
-import React from "react";
-
-import { makeStyles, createStyles } from "@mui/styles";
-import InputBase from "@mui/material/InputBase";
-
 import SearchIcon from "@mui/icons-material/Search";
+import InputBase from "@mui/material/InputBase";
+import { createStyles, makeStyles } from "@mui/styles";
+import React from "react";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme: any) =>
     createStyles({
@@ -28,10 +27,11 @@ const useStyles = makeStyles((theme: any) =>
 
 export default function SearchBox() {
     const classes = useStyles();
+    const { t } = useTranslation();
     return (
         <label className={classes.root}>
             <SearchIcon sx={{ ml: 1 }} />
-            <InputBase placeholder="Search" sx={{ px: 1 }} />
+            <InputBase placeholder={t("Search")} sx={{ px: 1 }} />
         </label>
     );
 }

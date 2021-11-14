@@ -1,13 +1,12 @@
-import React from "react";
-import { Link as RRLink } from "react-router-dom";
-
-import { makeStyles, createStyles } from "@mui/styles";
-
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import { createStyles, makeStyles } from "@mui/styles";
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { Link as RRLink } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 import { logout } from "./service";
 
@@ -20,6 +19,8 @@ const useStyles = makeStyles((theme: any) =>
 export default function AuthMenu() {
     const classes = useStyles();
     const { user, setUser } = useAuth();
+    const { t, i18n } = useTranslation();
+
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -68,10 +69,10 @@ export default function AuthMenu() {
                         component={RRLink}
                         to="/settings"
                     >
-                        Settings
+                        {t("Settings")}
                     </MenuItem>
                     <MenuItem key="logout" onClick={handleLogout}>
-                        Logout
+                        {t("Logout")}
                     </MenuItem>
                 </Menu>
             </>
@@ -85,7 +86,7 @@ export default function AuthMenu() {
                     component={RRLink}
                     to="/login"
                 >
-                    Login
+                    {t("Login")}
                 </Button>
                 <Button
                     color="inherit"
@@ -93,7 +94,7 @@ export default function AuthMenu() {
                     component={RRLink}
                     to="/register"
                 >
-                    Register
+                    {t("Register")}
                 </Button>
             </>
         );
