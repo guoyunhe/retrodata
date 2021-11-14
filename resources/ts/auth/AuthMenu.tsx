@@ -3,23 +3,15 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { createStyles, makeStyles } from "@mui/styles";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link as RRLink } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 import { logout } from "./service";
 
-const useStyles = makeStyles((theme: any) =>
-    createStyles({
-        avatar: {},
-    })
-);
-
 export default function AuthMenu() {
-    const classes = useStyles();
     const { user, setUser } = useAuth();
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
 
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
@@ -46,7 +38,7 @@ export default function AuthMenu() {
                     onClick={handleClick}
                     sx={{ p: 0, ml: 1 }}
                 >
-                    <Avatar className={classes.avatar} src={user.avatar?.url} />
+                    <Avatar src={user.avatar?.url} />
                 </IconButton>
                 <Menu
                     id="auth-menu"

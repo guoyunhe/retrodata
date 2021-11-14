@@ -1,19 +1,18 @@
-import React, { FormEvent, useState, ChangeEvent } from "react";
-import { Link as RRLink, Redirect } from "react-router-dom";
-
-import { makeStyles } from "@mui/styles";
-
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Checkbox from "@mui/material/Checkbox";
 import CircularProgress from "@mui/material/CircularProgress";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Link from "@mui/material/Link";
+import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
-
-import { login } from "./service";
+import { makeStyles } from "@mui/styles";
+import React, { ChangeEvent, FormEvent, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { Link as RRLink, Redirect } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 import AuthLayout from "./AuthLayout";
+import { login } from "./service";
 import { fetchUser } from "./services/fetchUser";
 
 const useStyles = makeStyles({
@@ -35,6 +34,7 @@ export interface LoginErrors {
 export default function Login() {
     const classes = useStyles();
     const { user, setUser } = useAuth();
+    const { t } = useTranslation();
     const [loading, setLoading] = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -62,9 +62,9 @@ export default function Login() {
     return (
         <AuthLayout>
             <form method="POST" action="/login" onSubmit={handleSubmit}>
-                <Box my={3}>
+                <Stack spacing={2}>
                     <TextField
-                        label="Email"
+                        label={t("Email")}
                         name="email"
                         fullWidth
                         required
@@ -76,10 +76,8 @@ export default function Login() {
                         error={!!errors?.errors?.email}
                         helperText={errors?.errors?.email?.join(" ")}
                     />
-                </Box>
-                <Box my={3}>
                     <TextField
-                        label="Password"
+                        label={t("Password")}
                         name="password"
                         fullWidth
                         required
@@ -89,8 +87,6 @@ export default function Login() {
                             setPassword(e.target.value)
                         }
                     />
-                </Box>
-                <Box my={3}>
                     <FormControlLabel
                         control={
                             <Checkbox
@@ -99,23 +95,23 @@ export default function Login() {
                                 onChange={() => setRemember(!remember)}
                             />
                         }
-                        label="Remember me"
+                        label={t("Remember me")}
                     />
-                </Box>
-                <Box className={classes.buttonRow}>
-                    <Button
-                        type="submit"
-                        variant="contained"
-                        color="primary"
-                        endIcon={loading && <CircularProgress size={24} />}
-                        disabled={loading}
-                    >
-                        Login
-                    </Button>
-                    <Link component={RRLink} to="/password/reset">
-                        Forgot Your Password?
-                    </Link>
-                </Box>
+                    <Box className={classes.buttonRow}>
+                        <Button
+                            type="submit"
+                            variant="contained"
+                            color="primary"
+                            endIcon={loading && <CircularProgress size={24} />}
+                            disabled={loading}
+                        >
+                            {t("Login")}
+                        </Button>
+                        <Link component={RRLink} to="/password/reset">
+                            {t("Forgot Your Password?")}
+                        </Link>
+                    </Box>
+                </Stack>
             </form>
         </AuthLayout>
     );

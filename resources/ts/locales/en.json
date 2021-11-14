@@ -1,7 +1,14 @@
 {
+    "By joining, you agree to the <2>Terms</2> and <6>Privacy Policy</6>": "By joining, you agree to the <2>Terms</2> and <6>Privacy Policy</6>",
+    "Confirm Password": "Confirm Password",
+    "Email": "Email",
+    "Forgot Your Password?": "Forgot Your Password?",
     "Login": "Login",
     "Logout": "Logout",
+    "Name": "Name",
+    "Password": "Password",
     "Register": "Register",
+    "Remember me": "Remember me",
     "Search": "Search",
     "Settings": "Settings"
 }

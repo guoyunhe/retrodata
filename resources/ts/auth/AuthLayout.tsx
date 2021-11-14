@@ -1,33 +1,36 @@
-import React, { ReactNode } from "react";
-
-import { makeStyles } from "@mui/styles";
-
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
 import Container from "@mui/material/Container";
-
-import Banner from "../images/Banner";
-
-const useStyles = makeStyles({
-    root: {},
-    content: {},
-});
+import React, { ReactNode } from "react";
 
 export interface AuthLayoutProps {
     children?: ReactNode;
 }
 
 export default function AuthLayout({ children }: AuthLayoutProps) {
-    const classes = useStyles();
-
     return (
-        <div className={classes.root}>
-            <Banner
-                src="https://source.unsplash.com/YP2MNNId-Qs/1920x480"
-                width="1920"
-                height="480"
-            />
+        <Box
+            sx={{
+                backgroundImage:
+                    "url(/img/raychel-sanner-YP2MNNId-Qs-unsplash.jpg)",
+                backgroundSize: "cover",
+                height: "calc(100vh - 48px)",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+            }}
+        >
             <Container maxWidth="xs">
-                <div className={classes.content}>{children}</div>
+                <Card
+                    sx={{
+                        backgroundColor: "#ffffff88",
+                        backdropFilter: "blur(20px)",
+                    }}
+                >
+                    <CardContent>{children}</CardContent>
+                </Card>
             </Container>
-        </div>
+        </Box>
     );
 }

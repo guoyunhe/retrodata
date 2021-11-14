@@ -1,14 +1,11 @@
-import React from "react";
-import { NavLink, useLocation } from "react-router-dom";
-
-import { makeStyles, createStyles } from "@mui/styles";
-
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import Box from "@mui/material/Box";
-
-import { NavigationItem } from "./types/navigation";
 import Slide from "@mui/material/Slide";
+import { createStyles, makeStyles } from "@mui/styles";
+import React from "react";
+import { NavLink, useLocation } from "react-router-dom";
+import { NavigationItem } from "./types/navigation";
 
 const useStyles = makeStyles((theme: any) =>
     createStyles({
@@ -48,7 +45,6 @@ export default function BottomNavbar({
     const show = !!items.find((item) => item.href === location.pathname);
     return (
         <>
-            <BottomNavigation className={classes.placeholder} />
             <Slide direction="up" in={show}>
                 <Box className={classes.root} boxShadow={elevation}>
                     <BottomNavigation

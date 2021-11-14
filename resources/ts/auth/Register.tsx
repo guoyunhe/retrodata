@@ -1,15 +1,14 @@
-import React, { FormEvent, useState, ChangeEvent } from "react";
-import { Link as RRLink, Redirect } from "react-router-dom";
-
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
 import Link from "@mui/material/Link";
+import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
-
-import { register } from "./service";
+import React, { ChangeEvent, FormEvent, useState } from "react";
+import { Trans, useTranslation } from "react-i18next";
+import { Link as RRLink, Redirect } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 import AuthLayout from "./AuthLayout";
+import { register } from "./service";
 import { fetchUser } from "./services/fetchUser";
 
 export interface RegisterErrors {
@@ -24,6 +23,7 @@ export interface RegisterErrors {
 
 export default function Register() {
     const { user, setUser } = useAuth();
+    const { t } = useTranslation();
     const [loading, setLoading] = useState(false);
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -52,9 +52,9 @@ export default function Register() {
     return (
         <AuthLayout>
             <form method="POST" action="/register" onSubmit={handleSubmit}>
-                <Box my={3}>
+                <Stack spacing={2}>
                     <TextField
-                        label="Name"
+                        label={t("Name")}
                         name="name"
                         fullWidth
                         required
@@ -66,10 +66,8 @@ export default function Register() {
                         error={!!errors?.errors?.name}
                         helperText={errors?.errors?.name?.join(" ")}
                     />
-                </Box>
-                <Box my={3}>
                     <TextField
-                        label="Email"
+                        label={t("Email")}
                         name="email"
                         fullWidth
                         required
@@ -81,10 +79,8 @@ export default function Register() {
                         error={!!errors?.errors?.email}
                         helperText={errors?.errors?.email?.join(" ")}
                     />
-                </Box>
-                <Box my={3}>
                     <TextField
-                        label="Password"
+                        label={t("Password")}
                         name="password"
                         fullWidth
                         required
@@ -96,10 +92,8 @@ export default function Register() {
                         error={!!errors?.errors?.password}
                         helperText={errors?.errors?.password?.join(" ")}
                     />
-                </Box>
-                <Box my={3}>
                     <TextField
-                        label="Confirm Password"
+                        label={t("Confirm Password")}
                         name="password_confirmation"
                         fullWidth
                         required
@@ -113,8 +107,6 @@ export default function Register() {
                             " "
                         )}
                     />
-                </Box>
-                <Box my={3}>
                     <Button
                         type="submit"
                         variant="contained"
@@ -122,20 +114,21 @@ export default function Register() {
                         endIcon={loading && <CircularProgress size={24} />}
                         disabled={loading}
                     >
-                        Register
+                        {t("Register")}
                     </Button>
-                </Box>
-                <Box>
-                    By joining, you agree to the{" "}
-                    <Link component={RRLink} to="/terms">
-                        Terms
-                    </Link>{" "}
-                    and{" "}
-                    <Link component={RRLink} to="/privacy">
-                        Privacy Policy
-                    </Link>
-                    .
-                </Box>
+                    <div>
+                        <Trans>
+                            By joining, you agree to the{" "}
+                            <Link component={RRLink} to="/terms">
+                                Terms
+                            </Link>{" "}
+                            and{" "}
+                            <Link component={RRLink} to="/privacy">
+                                Privacy Policy
+                            </Link>
+                        </Trans>
+                    </div>
+                </Stack>
             </form>
         </AuthLayout>
     );

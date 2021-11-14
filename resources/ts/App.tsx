@@ -1,19 +1,18 @@
+import CssBaseline from "@mui/material/CssBaseline";
+import { makeStyles, ThemeProvider } from "@mui/styles";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { makeStyles, ThemeProvider } from "@mui/styles";
-import CssBaseline from "@mui/material/CssBaseline";
-
-import theme from "./config/theme";
-import Navbar from "./Navbar";
-import Home from "./Home";
 import { AuthProvider } from "./auth/AuthContext";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 import VerifyEmail from "./auth/VerifyEmail";
-import Settings from "./users/Settings";
-import NotFound from "./NotFound";
 import BottomNavbar from "./BottomNavbar";
 import navigationConfig from "./config/navigation";
+import theme from "./config/theme";
+import Home from "./Home";
+import Navbar from "./navbar/Navbar";
+import NotFound from "./NotFound";
+import Settings from "./users/Settings";
 
 const useStyles = makeStyles({
     root: {

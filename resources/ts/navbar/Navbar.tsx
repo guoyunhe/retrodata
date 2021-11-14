@@ -1,19 +1,17 @@
-import React from "react";
-import { Link as RRLink } from "react-router-dom";
-
-import { makeStyles, createStyles } from "@mui/styles";
+import MenuIcon from "@mui/icons-material/Menu";
+import MoreIcon from "@mui/icons-material/MoreVert";
 import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
-import Toolbar from "@mui/material/Toolbar";
+import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import Badge from "@mui/material/Badge";
-import MenuIcon from "@mui/icons-material/Menu";
-import MailIcon from "@mui/icons-material/Mail";
-import NotificationsIcon from "@mui/icons-material/Notifications";
-import MoreIcon from "@mui/icons-material/MoreVert";
 import Link from "@mui/material/Link";
-import SearchBox from "./SearchBox";
-import AuthMenu from "./auth/AuthMenu";
+import Toolbar from "@mui/material/Toolbar";
+import { createStyles, makeStyles } from "@mui/styles";
+import React from "react";
+import { Link as RRLink } from "react-router-dom";
+import AuthMenu from "../auth/AuthMenu";
+import SearchBox from "../SearchBox";
+import { LangMenu } from "./LangMenu";
 
 const useStyles = makeStyles((theme: any) =>
     createStyles({
@@ -81,16 +79,8 @@ export default function Navbar({}: NavbarProps) {
                 </div>
                 <div className={classes.grow} />
                 <div className={classes.sectionDesktop}>
-                    <IconButton aria-label="show 4 new mails" color="inherit">
-                        <Badge badgeContent={4} color="secondary">
-                            <MailIcon />
-                        </Badge>
-                    </IconButton>
-                    <IconButton color="inherit">
-                        <Badge badgeContent={17} color="secondary">
-                            <NotificationsIcon />
-                        </Badge>
-                    </IconButton>
+                    <LangMenu />
+                    <Divider orientation="vertical" flexItem sx={{ mx: 1 }} />
                     <AuthMenu />
                 </div>
                 <div className={classes.sectionMobile}>

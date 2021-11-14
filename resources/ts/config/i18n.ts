@@ -14,7 +14,10 @@ const resources = {
 
 i18n.use(initReactI18next).init({
     resources,
-    lng: navigator.language.startsWith("zh") ? "zh" : "en",
+    lng:
+        localStorage.getItem("language") ||
+        (navigator.language.startsWith("zh") ? "zh" : "en"),
+    supportedLngs: ["en", "zh"],
     interpolation: {
         escapeValue: false,
     },
