@@ -72,7 +72,7 @@ export default function Navbar({}: NavbarProps) {
                 </Link>
                 <SearchBox />
                 <div className={classes.sectionDesktop}>
-                    <Button color="inherit" component={RRLink} to="/labs">
+                    <Button color="inherit" component={RRLink} to="/">
                         {t("Home")}
                     </Button>
                     <Button color="inherit" component={RRLink} to="/labs">

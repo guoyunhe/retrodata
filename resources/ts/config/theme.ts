@@ -6,11 +6,16 @@ import { createTheme } from "@mui/material/styles";
  */
 const theme = createTheme({
     palette: {
-        primary: {
-            main: pink[200],
-        },
-        secondary: {
-            main: indigo[200],
+        primary: pink,
+        secondary: indigo,
+    },
+    components: {
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    fontSize: "1rem",
+                },
+            },
         },
     },
 });

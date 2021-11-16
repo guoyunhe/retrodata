@@ -1,5 +1,5 @@
 import CssBaseline from "@mui/material/CssBaseline";
-import { makeStyles, ThemeProvider } from "@mui/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { AuthProvider } from "./auth/AuthContext";
@@ -14,58 +14,40 @@ import Navbar from "./navbar/Navbar";
 import NotFound from "./NotFound";
 import Settings from "./users/Settings";
 
-const useStyles = makeStyles({
-    root: {
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        overflowX: "hidden",
-    },
-    animatedSwitch: {
-        position: "relative",
-        "& > div": {
-            position: "absolute",
-        },
-    },
-});
-
 export default function App() {
-    const classes = useStyles();
     return (
         <AuthProvider>
             <ThemeProvider theme={theme}>
                 <CssBaseline />
                 <Router>
-                    <div className={classes.root}>
-                        <Navbar />
+                    <Navbar />
 
-                        <Switch>
-                            <Route path="/login">
-                                <Login />
-                            </Route>
-                            <Route path="/register">
-                                <Register />
-                            </Route>
-                            <Route path="/email/verify">
-                                <VerifyEmail />
-                            </Route>
+                    <Switch>
+                        <Route path="/login">
+                            <Login />
+                        </Route>
+                        <Route path="/register">
+                            <Register />
+                        </Route>
+                        <Route path="/email/verify">
+                            <VerifyEmail />
+                        </Route>
 
-                            <Route path="/about">About</Route>
-                            <Route path="/creatives">Creatives</Route>
-                            <Route path="/organizations">Organizations</Route>
-                            <Route path="/settings">
-                                <Settings />
-                            </Route>
-                            <Route exact path="/">
-                                <Home />
-                            </Route>
-                            <Route>
-                                <NotFound />
-                            </Route>
-                        </Switch>
+                        <Route path="/about">About</Route>
+                        <Route path="/creatives">Creatives</Route>
+                        <Route path="/organizations">Organizations</Route>
+                        <Route path="/settings">
+                            <Settings />
+                        </Route>
+                        <Route exact path="/">
+                            <Home />
+                        </Route>
+                        <Route>
+                            <NotFound />
+                        </Route>
+                    </Switch>
 
-                        <BottomNavbar items={navigationConfig.bottomItems} />
-                    </div>
+                    <BottomNavbar items={navigationConfig.bottomItems} />
                 </Router>
             </ThemeProvider>
         </AuthProvider>
