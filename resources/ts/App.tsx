@@ -1,5 +1,6 @@
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
+import Box from "@mui/system/Box";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { AuthProvider } from "./auth/AuthContext";
@@ -9,9 +10,13 @@ import VerifyEmail from "./auth/VerifyEmail";
 import BottomNavbar from "./BottomNavbar";
 import navigationConfig from "./config/navigation";
 import theme from "./config/theme";
+import { Footer } from "./footer/Footer";
 import Home from "./Home";
 import Navbar from "./navbar/Navbar";
 import NotFound from "./NotFound";
+import { About } from "./siteinfo/About";
+import { Privacy } from "./siteinfo/Privacy";
+import { Terms } from "./siteinfo/Terms";
 import Settings from "./users/Settings";
 
 export default function App() {
@@ -20,34 +25,55 @@ export default function App() {
             <ThemeProvider theme={theme}>
                 <CssBaseline />
                 <Router>
-                    <Navbar />
+                    <Box
+                        display="flex"
+                        flexDirection="column"
+                        minHeight="100vh"
+                    >
+                        <Navbar />
 
-                    <Switch>
-                        <Route path="/login">
-                            <Login />
-                        </Route>
-                        <Route path="/register">
-                            <Register />
-                        </Route>
-                        <Route path="/email/verify">
-                            <VerifyEmail />
-                        </Route>
+                        <Box flex={1}>
+                            <Switch>
+                                <Route path="/login">
+                                    <Login />
+                                </Route>
+                                <Route path="/register">
+                                    <Register />
+                                </Route>
+                                <Route path="/email/verify">
+                                    <VerifyEmail />
+                                </Route>
 
-                        <Route path="/about">About</Route>
-                        <Route path="/creatives">Creatives</Route>
-                        <Route path="/organizations">Organizations</Route>
-                        <Route path="/settings">
-                            <Settings />
-                        </Route>
-                        <Route exact path="/">
-                            <Home />
-                        </Route>
-                        <Route>
-                            <NotFound />
-                        </Route>
-                    </Switch>
+                                <Route path="/about">
+                                    <About />
+                                </Route>
+                                <Route path="/privacy">
+                                    <Privacy />
+                                </Route>
+                                <Route path="/terms">
+                                    <Terms />
+                                </Route>
 
-                    <BottomNavbar items={navigationConfig.bottomItems} />
+                                <Route path="/creatives">Creatives</Route>
+                                <Route path="/organizations">
+                                    Organizations
+                                </Route>
+                                <Route path="/settings">
+                                    <Settings />
+                                </Route>
+                                <Route exact path="/">
+                                    <Home />
+                                </Route>
+                                <Route>
+                                    <NotFound />
+                                </Route>
+                            </Switch>
+                        </Box>
+
+                        <Footer />
+
+                        <BottomNavbar items={navigationConfig.bottomItems} />
+                    </Box>
                 </Router>
             </ThemeProvider>
         </AuthProvider>
