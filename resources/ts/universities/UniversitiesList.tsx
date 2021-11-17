@@ -9,7 +9,7 @@ export interface UniversitiesListProps {
 
 export function UniversitiesList({ universities }: UniversitiesListProps) {
     return (
-        <Grid container spacing={4} sx={{ p: 2 }}>
+        <Grid container spacing={4}>
             {universities.map((university) => (
                 <Grid key={university.id} item xs={12} sm={6} md={4} lg={3}>
                     <UniversityCard university={university} />

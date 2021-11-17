@@ -16,6 +16,7 @@ export function UniversityCard({ university }: UniversityCardProps) {
             sx={{ display: "flex", height: "150px" }}
             component={Link}
             to={"/universities/" + university.id}
+            color="primary"
         >
             <CardMedia
                 component="img"

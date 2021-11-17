@@ -1,6 +1,7 @@
 import AddIcon from "@mui/icons-material/Add";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import { blueGrey } from "@mui/material/colors";
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { queryUniversityList } from "./universities/services/queryUniversityList";
@@ -24,8 +25,8 @@ export default function Home() {
     }, []);
 
     return (
-        <Box sx={{ background: "#f0f0f0" }}>
-            <Box display="flex" justifyContent="center" sx={{ my: 3 }}>
+        <Box sx={{ background: blueGrey[100], p: 3 }}>
+            <Box display="flex" justifyContent="center" sx={{ mb: 3 }}>
                 <Button
                     size="large"
                     variant="contained"
