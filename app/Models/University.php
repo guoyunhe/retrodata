@@ -17,4 +17,19 @@ class University extends Model
      * @var array
      */
     protected $fillable = ['name', 'slug', 'contact_name', 'contact_phone', 'contact_email'];
+
+    /**
+     * The relationships that should always be loaded.
+     *
+     * @var array
+     */
+    protected $with = ['logo'];
+
+    /**
+     * Get the logo.
+     */
+    public function logo()
+    {
+        return $this->belongsTo(Image::class);
+    }
 }

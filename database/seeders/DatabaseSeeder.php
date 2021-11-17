@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             UniversitySeeder::class,
             CollegeSeeder::class,
+            LaboratorySeeder::class,
         ]);
     }
 }

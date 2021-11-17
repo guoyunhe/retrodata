@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class UniversityFactory extends Factory
 {
@@ -13,8 +14,13 @@ class UniversityFactory extends Factory
      */
     public function definition()
     {
+        $name = $this->faker->city() . ' University';
         return [
-            //
+            'name' => $name,
+            'slug' => Str::slug($name),
+            'contact_name' => $this->faker->name(),
+            'contact_email' => $this->faker->email(),
+            'contact_phone' => $this->faker->phoneNumber(),
         ];
     }
 }

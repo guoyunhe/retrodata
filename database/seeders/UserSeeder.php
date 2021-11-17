@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
     {
         User::factory()
             ->count(50)
-            ->hasAvatar(1)
+            ->forAvatar()
             ->create();
     }
 }
