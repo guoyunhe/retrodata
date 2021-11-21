@@ -14,8 +14,25 @@ class UniversitySeeder extends Seeder
      */
     public function run()
     {
-        University::factory()
-            ->count(10)
+        University::factory([
+            'name' => '阿尔托大学',
+            'name_en' => 'Aalto University',
+            'slug' => 'aalto',
+        ])
+            ->hasMemberships(10)
+            ->create();
+        University::factory([
+            'name' => '浙江大学',
+            'name_en' => 'Zhejiang University',
+            'slug' => 'zju',
+        ])
+            ->hasMemberships(10)
+            ->create();
+        University::factory([
+            'name' => '深圳大学',
+            'name_en' => 'Shenzhen University',
+            'slug' => 'szu',
+        ])
             ->hasMemberships(10)
             ->create();
     }

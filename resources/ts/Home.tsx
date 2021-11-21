@@ -4,12 +4,15 @@ import Button from "@mui/material/Button";
 import { blueGrey } from "@mui/material/colors";
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useAuth } from "./auth/AuthContext";
+import { Landing } from "./landing/Landing";
 import { queryUniversityList } from "./universities/services/queryUniversityList";
 import { University } from "./universities/types/University";
 import { UniversitiesList } from "./universities/UniversitiesList";
 import { UniversityCreateDialog } from "./universities/UniversityCreateDialog";
 
 export default function Home() {
+    const { user } = useAuth();
     const { t } = useTranslation();
     const [open, setOpen] = useState(false);
     const [universities, setUniversities] = useState<University[]>([]);
@@ -23,6 +26,10 @@ export default function Home() {
     useEffect(() => {
         refresh();
     }, []);
+
+    if (!user) {
+        return <Landing />;
+    }
 
     return (
         <Box sx={{ background: blueGrey[100], p: 3 }}>

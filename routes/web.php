@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\University;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,16 @@ use Illuminate\Support\Facades\Route;
 //         'users' => 'App\Http\Controllers\UserController',
 //     ]);
 // });
+
+Route::domain('{university}.' . config('app.domain'))->group(function () {
+    Route::get('/{any?}', function (
+        $university
+    ) {
+        return view('app', [
+            'university' =>  University::firstWhere('slug', $university),
+        ]);
+    })->where('any', '.*');
+});
 
 Route::get('/{any?}', function () {
     return view('app');

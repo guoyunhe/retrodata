@@ -54,10 +54,6 @@ export default function App() {
                                     <Terms />
                                 </Route>
 
-                                <Route path="/creatives">Creatives</Route>
-                                <Route path="/organizations">
-                                    Organizations
-                                </Route>
                                 <Route path="/settings">
                                     <Settings />
                                 </Route>
