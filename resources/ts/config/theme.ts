@@ -17,6 +17,13 @@ const theme = createTheme({
                 },
             },
         },
+        MuiToggleButton: {
+            styleOverrides: {
+                root: {
+                    fontSize: "1rem",
+                },
+            },
+        },
     },
 });
 

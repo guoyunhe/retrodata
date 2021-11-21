@@ -5,7 +5,7 @@ export function login(email: string, password: string, remember: boolean) {
     return axios.post<User>("/login", {
         email,
         password,
-        remember
+        remember,
     });
 }
 
@@ -17,13 +17,15 @@ export function register(
     name: string,
     email: string,
     password: string,
-    password_confirmation: string
+    password_confirmation: string,
+    type: string
 ) {
     return axios.post<User>("/register", {
         name,
         email,
         password,
-        password_confirmation
+        password_confirmation,
+        type,
     });
 }
 

@@ -50,7 +50,7 @@ export default function Navbar({}: NavbarProps) {
     const classes = useStyles();
     const { t } = useTranslation();
     return (
-        <AppBar className={classes.root} position="sticky" color="transparent">
+        <AppBar className={classes.root} position="sticky" color="default">
             <Toolbar variant="dense">
                 <IconButton
                     edge="start"

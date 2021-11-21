@@ -3,6 +3,8 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
+import ToggleButton from "@mui/material/ToggleButton";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { Link as RRLink, Redirect } from "react-router-dom";
@@ -25,6 +27,7 @@ export default function Register() {
     const { user, setUser } = useAuth();
     const { t } = useTranslation();
     const [loading, setLoading] = useState(false);
+    const [type, setType] = useState("researcher");
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -33,7 +36,7 @@ export default function Register() {
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
         setLoading(true);
-        register(name, email, password, passwordConfirmation)
+        register(name, email, password, passwordConfirmation, type)
             .then(() => fetchUser())
             .then((res) => {
                 setLoading(false);
@@ -46,13 +49,32 @@ export default function Register() {
     };
 
     if (user) {
-        return <Redirect to="/email/verify" />;
+        return <Redirect to="/" />;
     }
 
     return (
         <AuthLayout>
             <form method="POST" action="/register" onSubmit={handleSubmit}>
                 <Stack spacing={2}>
+                    <ToggleButtonGroup
+                        color="primary"
+                        exclusive
+                        value={type}
+                        onChange={(e, v) => {
+                            if (v) {
+                                setType(v);
+                            }
+                        }}
+                        fullWidth
+                        size="large"
+                    >
+                        <ToggleButton value="researcher">
+                            {t("Researcher")}
+                        </ToggleButton>
+                        <ToggleButton value="supplier">
+                            {t("Supplier")}
+                        </ToggleButton>
+                    </ToggleButtonGroup>
                     <TextField
                         label={t("Name")}
                         name="name"

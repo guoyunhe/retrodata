@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'type',
     ];
 
     /**
@@ -52,7 +53,16 @@ class User extends Authenticatable
     /**
      * Get the avatar.
      */
-    public function avatar() {
+    public function avatar()
+    {
         return $this->belongsTo(Image::class);
+    }
+
+    /**
+     * Get the memberships.
+     */
+    public function memberships()
+    {
+        return $this->hasMany(Membership::class);
     }
 }

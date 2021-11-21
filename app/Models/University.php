@@ -23,7 +23,7 @@ class University extends Model
      *
      * @var array
      */
-    protected $with = ['logo'];
+    protected $with = ['logo', 'memberships'];
 
     /**
      * Get the logo.
@@ -31,5 +31,13 @@ class University extends Model
     public function logo()
     {
         return $this->belongsTo(Image::class);
+    }
+
+    /**
+     * Get the memberships.
+     */
+    public function memberships()
+    {
+        return $this->morphMany(Membership::class, 'organization')->with('user');
     }
 }

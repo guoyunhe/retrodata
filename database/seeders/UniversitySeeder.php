@@ -15,8 +15,8 @@ class UniversitySeeder extends Seeder
     public function run()
     {
         University::factory()
-            ->count(50)
-            ->forLogo()
+            ->count(10)
+            ->hasMemberships(10)
             ->create();
     }
 }
