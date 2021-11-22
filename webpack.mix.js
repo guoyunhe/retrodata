@@ -13,4 +13,4 @@ const mix = require("laravel-mix");
 
 mix.ts("resources/ts/index.tsx", "public/js/app.js").react().extract();
 
-mix.browserSync("aalto.localhost");
+mix.browserSync("aalto.reagent.local");

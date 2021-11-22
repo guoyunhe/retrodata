@@ -12,8 +12,11 @@
 
     <!-- Scripts -->
     <script>
-        window.user = {!!auth()->user() ? auth()->user()->toJson() : 'null'!!};
-        window.university = {!! !empty($university) ? $university->toJson() : 'null'!!};
+        window.appName = "<?= config('app.name') ?>";
+        window.appUrl = "<?= config('app.url') ?>";
+        window.appDomain = "<?= config('app.domain') ?>";
+        window.user = <?= auth()->user() ? auth()->user()->toJson() : 'null' ?>;
+        window.university = <?= !empty($university) ? $university->toJson() : 'null' ?>;
     </script>
 
     <script src="{{ asset('js/manifest.js') }}" defer></script>
