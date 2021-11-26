@@ -48,7 +48,7 @@ export interface NavbarProps {}
 
 export default function Navbar({}: NavbarProps) {
     const classes = useStyles();
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     return (
         <AppBar className={classes.root} position="sticky" color="default">
             <Toolbar variant="dense">
@@ -68,7 +68,9 @@ export default function Navbar({}: NavbarProps) {
                     variant="h6"
                     noWrap
                 >
-                    {process.env.MIX_APP_NAME}
+                    {(window as any).university?.[
+                        i18n.language === "zh" ? "name" : "name_en"
+                    ] || window.appName}
                 </Link>
                 <SearchBox />
                 <div className={classes.sectionDesktop}>
