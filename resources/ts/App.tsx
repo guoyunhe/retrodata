@@ -11,7 +11,7 @@ import BottomNavbar from "./BottomNavbar";
 import navigationConfig from "./config/navigation";
 import theme from "./config/theme";
 import { Footer } from "./footer/Footer";
-import Home from "./Home";
+import Home from "./home/Home";
 import Navbar from "./navbar/Navbar";
 import NotFound from "./NotFound";
 import { About } from "./siteinfo/About";

@@ -95,7 +95,7 @@ export default function Login() {
                                 onChange={() => setRemember(!remember)}
                             />
                         }
-                        label={t("Remember me")}
+                        label={t("Remember me").toString()}
                     />
                     <Box className={classes.buttonRow}>
                         <Button
