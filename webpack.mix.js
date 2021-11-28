@@ -11,6 +11,11 @@ const mix = require("laravel-mix");
  |
  */
 
-mix.ts("resources/ts/index.tsx", "public/js/app.js").react().extract();
+mix.ts("resources/ts/landing/index.tsx", "public/js/landing.js")
+    .ts("resources/ts/academy/index.tsx", "public/js/academy.js")
+    .ts("resources/ts/admin/index.tsx", "public/js/admin.js")
+    .ts("resources/ts/supply/index.tsx", "public/js/supply.js")
+    .react()
+    .extract();
 
 mix.browserSync("aalto.reagent.local");

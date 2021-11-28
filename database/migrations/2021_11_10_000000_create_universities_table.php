@@ -19,9 +19,6 @@ class CreateUniversitiesTable extends Migration
             $table->string('name');
             $table->string('name_en')->nullable();
             $table->foreignId('logo_id')->nullable()->constrained('images');
-            $table->string('contact_name');
-            $table->string('contact_email');
-            $table->string('contact_phone');
             $table->timestamps();
             $table->softDeletes();
         });

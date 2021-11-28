@@ -16,6 +16,5 @@
         "noImplicitAny": true,
         "strictNullChecks": true
     },
-    "include": ["resources/ts/**/*.ts", "resources/ts/**/*.tsx"],
-    "exclude": ["resources/ts/**/*.spec.ts", "resources/ts/**/*.spec.tsx"]
+    "include": ["resources/ts/**/*.ts", "resources/ts/**/*.tsx"]
 }
