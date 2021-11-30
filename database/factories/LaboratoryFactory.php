@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class LaboratoryFactory extends Factory
 {
@@ -13,8 +14,11 @@ class LaboratoryFactory extends Factory
      */
     public function definition()
     {
+        $name = $this->faker->name();
         return [
-            //
+            'name' => $name . '实验室',
+            'name_en' => $name . ' Lab',
+            'slug' => Str::slug($name),
         ];
     }
 }

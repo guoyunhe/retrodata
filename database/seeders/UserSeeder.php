@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         // Platform account
-        User::factory(['email' => 'admin@example.com', 'type' => 'platform'])
+        User::factory(['name' => 'The Admin', 'email' => 'admin@example.com', 'type' => 'admin'])
             ->count(1)
             ->create();
     }

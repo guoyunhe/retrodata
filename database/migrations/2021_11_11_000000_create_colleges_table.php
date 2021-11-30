@@ -23,7 +23,7 @@ class CreateCollegesTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->unique('university_id', 'slug');
+            $table->unique(['university_id', 'slug']);
         });
     }
 

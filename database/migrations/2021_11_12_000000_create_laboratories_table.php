@@ -23,7 +23,7 @@ class CreateLaboratoriesTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->unique('college_id', 'slug');
+            $table->unique(['college_id', 'slug']);
         });
     }
 

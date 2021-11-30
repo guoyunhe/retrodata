@@ -18,9 +18,6 @@ class UniversityFactory extends Factory
         return [
             'name' => $name,
             'slug' => Str::slug($name),
-            'contact_name' => $this->faker->name(),
-            'contact_email' => $this->faker->email(),
-            'contact_phone' => $this->faker->phoneNumber(),
         ];
     }
 }

@@ -16,7 +16,7 @@ class University extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'slug', 'contact_name', 'contact_phone', 'contact_email'];
+    protected $fillable = ['name', 'name_en', 'slug'];
 
     /**
      * The relationships that should always be loaded.
@@ -31,6 +31,14 @@ class University extends Model
     public function logo()
     {
         return $this->belongsTo(Image::class);
+    }
+
+    /**
+     * Get the colleges.
+     */
+    public function colleges()
+    {
+        return $this->hasMany(College::class);
     }
 
     /**

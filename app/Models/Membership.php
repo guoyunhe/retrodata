@@ -14,7 +14,7 @@ class Membership extends Model
      *
      * @var array
      */
-    protected $with = ['user'];
+    protected $with = [];
 
     /**
      * Get the user.

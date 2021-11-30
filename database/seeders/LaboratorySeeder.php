@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\College;
+use App\Models\Laboratory;
 use Illuminate\Database\Seeder;
 
 class LaboratorySeeder extends Seeder
@@ -13,6 +15,10 @@ class LaboratorySeeder extends Seeder
      */
     public function run()
     {
-        //
+        foreach (College::all() as $college) {
+            Laboratory::factory(
+                ['college_id' => $college->id]
+            )->hasMemberships(10)->count(5)->create();
+        }
     }
 }
