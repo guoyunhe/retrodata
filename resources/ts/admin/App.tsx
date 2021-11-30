@@ -2,7 +2,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import Box from "@mui/system/Box";
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { AuthProvider } from "../common/auth";
 import theme from "../theme";
 import Login from "./auth/Login";
@@ -28,7 +28,7 @@ export function App() {
                         <Navbar />
 
                         <Box flex={1}>
-                            <Switch>
+                            <Routes>
                                 <Route path="/login">
                                     <Login />
                                 </Route>
@@ -42,13 +42,13 @@ export function App() {
                                 <Route path="/settings">
                                     <Settings />
                                 </Route>
-                                <Route exact path="/">
+                                <Route path="/">
                                     <Home />
                                 </Route>
                                 <Route>
                                     <NotFound />
                                 </Route>
-                            </Switch>
+                            </Routes>
                         </Box>
 
                         <Footer />

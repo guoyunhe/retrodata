@@ -9,7 +9,7 @@ import TextField from "@mui/material/TextField";
 import { makeStyles } from "@mui/styles";
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link as RRLink, Redirect } from "react-router-dom";
+import { Link as RRLink, Navigate } from "react-router-dom";
 import { fetchUser, login, useAuth } from "../../common/auth";
 import AuthLayout from "./AuthLayout";
 
@@ -54,7 +54,7 @@ export default function Login() {
     };
 
     if (user) {
-        return <Redirect to="/" />;
+        return <Navigate to="/" />;
     }
 
     return (

@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
 import React, { FormEvent, useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { resendEmail, useAuth } from "../../common/auth";
 import AuthLayout from "./AuthLayout";
 
@@ -29,7 +29,7 @@ export default function VerifyEmail() {
     };
 
     if (user?.email_verified_at) {
-        return <Redirect to="/" />;
+        return <Navigate to="/" />;
     }
 
     return (

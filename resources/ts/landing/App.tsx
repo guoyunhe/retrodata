@@ -2,7 +2,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import Box from "@mui/system/Box";
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import theme from "../theme";
 import { About } from "./about";
 import { Footer } from "./footer";
@@ -21,7 +21,7 @@ export default function App() {
                     <Navbar />
 
                     <Box flex={1}>
-                        <Switch>
+                        <Routes>
                             <Route path="/about">
                                 <About />
                             </Route>
@@ -32,13 +32,13 @@ export default function App() {
                                 <Terms />
                             </Route>
 
-                            <Route exact path="/">
+                            <Route path="/">
                                 <Home />
                             </Route>
                             <Route>
                                 <NotFound />
                             </Route>
-                        </Switch>
+                        </Routes>
                     </Box>
 
                     <Footer />

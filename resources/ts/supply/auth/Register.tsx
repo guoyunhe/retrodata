@@ -7,7 +7,7 @@ import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
-import { Link as RRLink, Redirect } from "react-router-dom";
+import { Link as RRLink, Navigate } from "react-router-dom";
 import { fetchUser, register, useAuth } from "../../common/auth";
 import AuthLayout from "./AuthLayout";
 
@@ -47,7 +47,7 @@ export default function Register() {
     };
 
     if (user) {
-        return <Redirect to="/" />;
+        return <Navigate to="/" />;
     }
 
     return (

@@ -2,8 +2,8 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import Box from "@mui/system/Box";
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { AuthProvider } from "../common/auth";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { AuthProvider, RequireAuth } from "../common/auth";
 import theme from "../theme";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
@@ -28,27 +28,39 @@ export function App() {
                         <Navbar />
 
                         <Box flex={1}>
-                            <Switch>
-                                <Route path="/login">
-                                    <Login />
-                                </Route>
-                                <Route path="/register">
-                                    <Register />
-                                </Route>
-                                <Route path="/email/verify">
-                                    <VerifyEmail />
-                                </Route>
+                            <Routes>
+                                <Route
+                                    path="/"
+                                    element={
+                                        <RequireAuth>
+                                            <Home />
+                                        </RequireAuth>
+                                    }
+                                />
+                                <Route path="/login" element={<Login />} />
+                                <Route
+                                    path="/register"
+                                    element={<Register />}
+                                />
+                                <Route
+                                    path="/email/verify"
+                                    element={
+                                        <RequireAuth>
+                                            <VerifyEmail />
+                                        </RequireAuth>
+                                    }
+                                />
 
-                                <Route path="/settings">
-                                    <Settings />
-                                </Route>
-                                <Route exact path="/">
-                                    <Home />
-                                </Route>
-                                <Route>
-                                    <NotFound />
-                                </Route>
-                            </Switch>
+                                <Route
+                                    path="/settings"
+                                    element={
+                                        <RequireAuth>
+                                            <Settings />
+                                        </RequireAuth>
+                                    }
+                                />
+                                <Route path="*" element={<NotFound />} />
+                            </Routes>
                         </Box>
 
                         <Footer />
