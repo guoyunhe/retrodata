@@ -12,9 +12,12 @@ class LaboratoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $request->validate([
+            'college_id' => 'required|exists:colleges,id',
+        ]);
+        return Laboratory::where('college_id', $request->input('college_id'))->get();
     }
 
     /**

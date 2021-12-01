@@ -3,7 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\CollegeController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\LaboratoryController;
 use App\Http\Controllers\UniversityController;
 use App\Models\User;
 
@@ -41,3 +43,7 @@ Route::get('/users', function (Request $request) {
 Route::resource('images', ImageController::class);
 
 Route::resource('universities', UniversityController::class);
+
+Route::resource('colleges', CollegeController::class);
+
+Route::resource('laboratories', LaboratoryController::class);

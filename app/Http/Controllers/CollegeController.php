@@ -12,9 +12,12 @@ class CollegeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $request->validate([
+            'university_id' => 'required|exists:universities,id',
+        ]);
+        return College::where('university_id', $request->input('university_id'))->get();
     }
 
     /**
