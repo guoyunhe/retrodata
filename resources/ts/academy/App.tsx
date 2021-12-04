@@ -8,8 +8,8 @@ import theme from "../theme";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 import VerifyEmail from "./auth/VerifyEmail";
+import { Dashboard } from "./dashboard";
 import { Footer } from "./footer/Footer";
-import { Home } from "./home";
 import { Navbar } from "./navbar";
 import { NotFound } from "./not-found";
 import Settings from "./users/Settings";
@@ -33,7 +33,7 @@ export function App() {
                                     path="/"
                                     element={
                                         <RequireAuth>
-                                            <Home />
+                                            <Dashboard />
                                         </RequireAuth>
                                     }
                                 />

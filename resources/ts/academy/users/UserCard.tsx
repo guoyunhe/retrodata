@@ -5,7 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { makeStyles } from "@mui/styles";
 import React from "react";
-import { User } from "../../common/types/user";
+import { User } from "../../common/users";
 
 const useStyles = makeStyles({
     root: {},
@@ -37,14 +37,6 @@ export default function UserCard({ user }: UserCardProps) {
                         component="h2"
                     >
                         {user.name}
-                    </Typography>
-                    <Typography variant="subtitle2" component="p">
-                        {user.location}
-                    </Typography>
-                    <Typography variant="caption" component="p">
-                        {user.tags.map((tag) => (
-                            <span> #{tag.name} </span>
-                        ))}
                     </Typography>
                 </CardContent>
             </CardActionArea>

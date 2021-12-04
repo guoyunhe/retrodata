@@ -1,17 +1,13 @@
-import React, { useRef, useState, ChangeEvent } from "react";
-
-import { createStyles, makeStyles } from "@mui/styles";
-
+import CloudUploadIcon from "@mui/icons-material/CloudUploadOutlined";
+import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardMedia from "@mui/material/CardMedia";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-
-import CloudUploadIcon from "@mui/icons-material/CloudUploadOutlined";
-import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
-
-import { readFileAsDataString } from "./image-file-utils";
+import { createStyles, makeStyles } from "@mui/styles";
+import React, { ChangeEvent, useRef, useState } from "react";
+import { readFileAsDataString } from "./readFileAsDataString";
 
 const size = 200;
 
@@ -60,7 +56,7 @@ export interface ImageUploadCardProps {
     onRemove?: () => void;
 }
 
-export default function ImageUploadCard({
+export function ImageUploadCard({
     image,
     disabled,
     onChange,

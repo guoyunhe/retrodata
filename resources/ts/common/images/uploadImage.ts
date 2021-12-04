@@ -1,7 +1,7 @@
 import axios from "axios";
-import { Image } from "../types/image";
+import { Image } from "./Image";
 
-export function upload(
+export function uploadImage(
     image: File,
     width?: number,
     height?: number,

@@ -4,10 +4,8 @@ import { createStyles, makeStyles } from "@mui/styles";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { updateUser, useAuth } from "../../common/auth";
-import ImageUploadCard from "../../common/images/ImageUploadCard";
-import ImageUploadGrid from "../../common/images/ImageUploadGrid";
-import { upload } from "../../common/images/service";
-import { User } from "../../common/types/user";
+import { ImageUploadCard, uploadImage } from "../../common/images";
+import { User } from "../../common/users/User";
 
 const useStyles = makeStyles((theme: any) =>
     createStyles({
@@ -20,7 +18,7 @@ const useStyles = makeStyles((theme: any) =>
 export default function Settings() {
     const classes = useStyles();
     const { user, setUser } = useAuth();
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
 
     return (
         <Container className={classes.root} maxWidth="sm">
@@ -32,7 +30,7 @@ export default function Settings() {
                 image={user?.avatar?.url}
                 onChange={(file) => {
                     if (file && user) {
-                        upload(file, 300, 300, true).then((res) => {
+                        uploadImage(file, 300, 300, true).then((res) => {
                             const avatar = res.data;
                             const newUser: User = {
                                 ...user,
@@ -45,7 +43,6 @@ export default function Settings() {
                     }
                 }}
             />
-            <ImageUploadGrid />
             <Typography variant="h2">User Information</Typography>
         </Container>
     );
