@@ -71,13 +71,10 @@ export default function Navbar({}: NavbarProps) {
                 </Link>
                 <div className={classes.sectionDesktop}>
                     <Button color="inherit" component={RRLink} to="/">
-                        {t("Home")}
-                    </Button>
-                    <Button color="inherit" component={RRLink} to="/labs">
-                        {t("Labs")}
+                        {t("home")}
                     </Button>
                     <Button color="inherit" component={RRLink} to="/about">
-                        {t("About")}
+                        {t("about")}
                     </Button>
                 </div>
                 <div className={classes.grow} />

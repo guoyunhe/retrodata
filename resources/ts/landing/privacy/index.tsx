@@ -8,7 +8,7 @@ export function Privacy() {
     return (
         <Container>
             <Typography variant="h1" sx={{ my: 4 }}>
-                {t("Privacy")}
+                {t("privacy")}
             </Typography>
             <p>TODO</p>
         </Container>

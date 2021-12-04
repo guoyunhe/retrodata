@@ -47,7 +47,7 @@ class LaboratoryController extends Controller
      */
     public function show(Laboratory $laboratory)
     {
-        //
+        return $laboratory->with('members');
     }
 
     /**

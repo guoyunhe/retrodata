@@ -3,7 +3,6 @@ import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import TextField from "@mui/material/TextField";
 import React, { useState } from "react";
@@ -60,14 +59,13 @@ export function UniversityCreateDialog({
 
     return (
         <Dialog open={open} onClose={handleClose}>
-            <DialogTitle>{t("Create University")}</DialogTitle>
+            <DialogTitle>
+                {t("university-create", { ns: "admin-university" })}
+            </DialogTitle>
             <DialogContent sx={{ overflow: "visible" }}>
-                <DialogContentText sx={{ mb: 2 }}>
-                    {t("University Information")}
-                </DialogContentText>
                 <TextField
                     autoFocus
-                    label={t("Name of university")}
+                    label={t("university-name", { ns: "admin-university" })}
                     type="text"
                     fullWidth
                     value={name}
@@ -78,53 +76,15 @@ export function UniversityCreateDialog({
                     helperText={errors?.errors?.name?.join(" ")}
                     sx={{ mb: 2 }}
                 />
-                <DialogContentText sx={{ mb: 2 }}>
-                    {t("Contact Information")}
-                </DialogContentText>
-                <TextField
-                    label={t("Contact person name")}
-                    type="text"
-                    fullWidth
-                    value={contactName}
-                    onChange={(e) => {
-                        setContactName(e.target.value);
-                    }}
-                    error={!!errors?.errors?.contact_name}
-                    helperText={errors?.errors?.contact_name?.join(" ")}
-                    sx={{ mb: 2 }}
-                />
-                <TextField
-                    label={t("Contact phone number")}
-                    type="tel"
-                    fullWidth
-                    value={contactPhone}
-                    onChange={(e) => {
-                        setContactPhone(e.target.value);
-                    }}
-                    error={!!errors?.errors?.contact_phone}
-                    helperText={errors?.errors?.contact_phone?.join(" ")}
-                    sx={{ mb: 2 }}
-                />
-                <TextField
-                    label={t("Contact email address")}
-                    type="email"
-                    fullWidth
-                    value={contactEmail}
-                    onChange={(e) => {
-                        setContactEmail(e.target.value);
-                    }}
-                    error={!!errors?.errors?.contact_email}
-                    helperText={errors?.errors?.contact_email?.join(" ")}
-                />
             </DialogContent>
             <DialogActions>
-                <Button onClick={handleClose}>{t("Cancel")}</Button>
+                <Button onClick={handleClose}>{t("cancel")}</Button>
                 <LoadingButton
                     variant="contained"
                     loading={creating}
                     onClick={handleCreate}
                 >
-                    {t("Create")}
+                    {t("create")}
                 </LoadingButton>
             </DialogActions>
         </Dialog>

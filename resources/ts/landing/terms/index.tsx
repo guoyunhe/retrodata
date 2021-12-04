@@ -8,7 +8,7 @@ export function Terms() {
     return (
         <Container>
             <Typography variant="h1" sx={{ my: 4 }}>
-                {t("Terms")}
+                {t("terms")}
             </Typography>
             <p>TODO</p>
         </Container>

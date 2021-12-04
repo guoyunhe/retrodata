@@ -60,10 +60,10 @@ export default function AuthMenu() {
                         component={RRLink}
                         to="/settings"
                     >
-                        {t("Settings")}
+                        {t("settings")}
                     </MenuItem>
                     <MenuItem key="logout" onClick={handleLogout}>
-                        {t("Logout")}
+                        {t("logout")}
                     </MenuItem>
                 </Menu>
             </>
@@ -77,7 +77,7 @@ export default function AuthMenu() {
                     component={RRLink}
                     to="/login"
                 >
-                    {t("Login")}
+                    {t("login")}
                 </Button>
                 <Button
                     color="inherit"
@@ -85,7 +85,7 @@ export default function AuthMenu() {
                     component={RRLink}
                     to="/register"
                 >
-                    {t("Register")}
+                    {t("register")}
                 </Button>
             </>
         );

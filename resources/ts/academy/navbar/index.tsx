@@ -10,8 +10,8 @@ import { createStyles, makeStyles } from "@mui/styles";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link as RRLink } from "react-router-dom";
+import { LangMenu } from "../../common/locales/LangMenu";
 import AuthMenu from "../auth/AuthMenu";
-import { LangMenu } from "./LangMenu";
 import { SearchBox } from "./SearchBox";
 
 const useStyles = makeStyles((theme: any) =>
@@ -68,20 +68,16 @@ export function Navbar({}: NavbarProps) {
                     variant="h6"
                     noWrap
                 >
-                    {(window as any).university?.[
-                        i18n.language === "zh" ? "name" : "name_en"
-                    ] || window.appName}
+                    {
+                        window.university[
+                            i18n.language === "zh" ? "name" : "name_en"
+                        ]
+                    }
                 </Link>
                 <SearchBox />
                 <div className={classes.sectionDesktop}>
                     <Button color="inherit" component={RRLink} to="/">
-                        {t("Home")}
-                    </Button>
-                    <Button color="inherit" component={RRLink} to="/labs">
-                        {t("Labs")}
-                    </Button>
-                    <Button color="inherit" component={RRLink} to="/about">
-                        {t("About")}
+                        {t("home")}
                     </Button>
                 </div>
                 <div className={classes.grow} />

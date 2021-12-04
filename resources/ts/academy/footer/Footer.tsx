@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import { Link as RRLink } from "react-router-dom";
 
 export function Footer() {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     return (
         <Box
             display="flex"
@@ -15,15 +15,16 @@ export function Footer() {
             py={3}
             sx={{ background: grey["100"] }}
         >
-            &copy; {new Date().getFullYear()} {window.university.name}
+            &copy; {new Date().getFullYear()}{" "}
+            {window.university[i18n.language === "zh" ? "name" : "name_en"]}
             <Link component={RRLink} to="/about">
-                {t("About")}
+                {t("about")}
             </Link>
             <Link component={RRLink} to="/privacy">
-                {t("Privacy")}
+                {t("privacy")}
             </Link>
             <Link component={RRLink} to="/terms">
-                {t("Terms")}
+                {t("terms")}
             </Link>
         </Box>
     );

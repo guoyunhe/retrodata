@@ -23,7 +23,7 @@ export default function Settings() {
     return (
         <Container className={classes.root} maxWidth="sm">
             <Typography variant="h1" sx={{ mt: 5 }}>
-                {t("Settings")}
+                {t("settings")}
             </Typography>
             <Typography variant="h2">Avatar</Typography>
             <ImageUploadCard

@@ -17,13 +17,13 @@ export function Footer() {
         >
             &copy; {new Date().getFullYear()} {window.appName}
             <Link component={RRLink} to="/about">
-                {t("About")}
+                {t("about")}
             </Link>
             <Link component={RRLink} to="/privacy">
-                {t("Privacy")}
+                {t("privacy")}
             </Link>
             <Link component={RRLink} to="/terms">
-                {t("Terms")}
+                {t("terms")}
             </Link>
         </Box>
     );

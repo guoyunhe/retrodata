@@ -8,7 +8,6 @@ import theme from "../theme";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 import VerifyEmail from "./auth/VerifyEmail";
-import { Footer } from "./footer/Footer";
 import { Home } from "./home";
 import { Navbar } from "./navbar";
 import { NotFound } from "./not-found";
@@ -50,8 +49,6 @@ export function App() {
                                 </Route>
                             </Routes>
                         </Box>
-
-                        <Footer />
                     </Box>
                 </Router>
             </ThemeProvider>

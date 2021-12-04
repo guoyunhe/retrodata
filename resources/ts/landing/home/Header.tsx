@@ -33,21 +33,21 @@ export function Header() {
                     }}
                 >
                     <Typography variant="h2">
-                        {t("landing-header-title")}
+                        {t("title", { ns: "landing-home" })}
                     </Typography>
                     <Typography variant="h5">
-                        {t("Join the leading reagent management platform now")}
+                        {t("subtitle", { ns: "landing-home" })}
                     </Typography>
                     <Box display="flex" gap={3}>
                         <Button variant="contained" size="large">
-                            {t("Researcher")}
+                            {t("researcher")}
                         </Button>
                         <Button
                             variant="contained"
                             size="large"
                             color="secondary"
                         >
-                            {t("Supplier")}
+                            {t("supplier")}
                         </Button>
                     </Box>
                 </Container>

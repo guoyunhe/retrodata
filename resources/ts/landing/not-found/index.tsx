@@ -21,7 +21,7 @@ export function NotFound() {
                         to="/"
                         startIcon={<ArrowBackIcon />}
                     >
-                        {t("Go back to home")}
+                        {t("back-home")}
                     </Button>
                 </div>
             </Container>

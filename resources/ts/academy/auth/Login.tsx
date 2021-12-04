@@ -62,7 +62,7 @@ export default function Login() {
             <form method="POST" action="/login" onSubmit={handleSubmit}>
                 <Stack spacing={2}>
                     <TextField
-                        label={t("Email")}
+                        label={t("email")}
                         name="email"
                         fullWidth
                         required
@@ -75,7 +75,7 @@ export default function Login() {
                         helperText={errors?.errors?.email?.join(" ")}
                     />
                     <TextField
-                        label={t("Password")}
+                        label={t("password")}
                         name="password"
                         fullWidth
                         required
@@ -93,7 +93,7 @@ export default function Login() {
                                 onChange={() => setRemember(!remember)}
                             />
                         }
-                        label={t("Remember me").toString()}
+                        label={t("remember-me").toString()}
                     />
                     <Box className={classes.buttonRow}>
                         <Button
@@ -103,10 +103,10 @@ export default function Login() {
                             endIcon={loading && <CircularProgress size={24} />}
                             disabled={loading}
                         >
-                            {t("Login")}
+                            {t("login")}
                         </Button>
                         <Link component={RRLink} to="/password/reset">
-                            {t("Forgot Your Password?")}
+                            {t("forgot-password")}
                         </Link>
                     </Box>
                 </Stack>

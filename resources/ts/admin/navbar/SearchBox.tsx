@@ -31,7 +31,7 @@ export function SearchBox() {
     return (
         <label className={classes.root}>
             <SearchIcon sx={{ ml: 1 }} />
-            <InputBase placeholder={t("Search")} sx={{ px: 1 }} />
+            <InputBase placeholder={t("search")} sx={{ px: 1 }} />
         </label>
     );
 }

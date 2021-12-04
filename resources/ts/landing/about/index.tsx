@@ -8,7 +8,7 @@ export function About() {
     return (
         <Container>
             <Typography variant="h1" sx={{ my: 4 }}>
-                {t("About")}
+                {t("about")}
             </Typography>
             <p>TODO</p>
         </Container>

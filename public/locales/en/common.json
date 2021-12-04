@@ -1,0 +1,23 @@
+{
+    "about": "About",
+    "back-home": "Go back to home page",
+    "cancel": "cancel",
+    "confirm-password": "Confirm password",
+    "create": "Create",
+    "email": "Email",
+    "forgot-password": "Forgot your password?",
+    "home": "Home",
+    "login": "Login",
+    "logout": "Logout",
+    "name": "Name",
+    "password": "Password",
+    "privacy": "Privacy",
+    "register": "Register",
+    "register-agree": "By joining, you agree to the <2>Terms</2> and <6>Privacy Policy</6>",
+    "remember-me": "Remember me",
+    "researcher": "Researcher",
+    "search": "Search",
+    "settings": "Settings",
+    "supplier": "Supplier",
+    "terms": "Terms"
+}

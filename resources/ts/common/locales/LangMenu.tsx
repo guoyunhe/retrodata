@@ -5,7 +5,7 @@ import MenuItem from "@mui/material/MenuItem";
 import axios from "axios";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import langs from "../locales/langs.json";
+import { langs } from "./langs";
 
 export function LangMenu() {
     const { i18n } = useTranslation();

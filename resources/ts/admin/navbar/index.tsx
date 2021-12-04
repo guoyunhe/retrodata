@@ -1,7 +1,6 @@
 import MenuIcon from "@mui/icons-material/Menu";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import AppBar from "@mui/material/AppBar";
-import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import Link from "@mui/material/Link";
@@ -73,17 +72,6 @@ export function Navbar({}: NavbarProps) {
                     ] || window.appName}
                 </Link>
                 <SearchBox />
-                <div className={classes.sectionDesktop}>
-                    <Button color="inherit" component={RRLink} to="/">
-                        {t("Home")}
-                    </Button>
-                    <Button color="inherit" component={RRLink} to="/labs">
-                        {t("Labs")}
-                    </Button>
-                    <Button color="inherit" component={RRLink} to="/about">
-                        {t("About")}
-                    </Button>
-                </div>
                 <div className={classes.grow} />
                 <div className={classes.sectionDesktop}>
                     <LangMenu />
