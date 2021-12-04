@@ -22,6 +22,9 @@ class LaboratoryController extends Controller
         if ($request->has('college_id')) {
             $query = $query->where('college_id', $request->input('college_id'));
         }
+        if ($request->has('with_college')) {
+            $query = $query->with('college');
+        }
         return $query->get();
     }
 
