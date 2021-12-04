@@ -8,7 +8,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import TextField from "@mui/material/TextField";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { createUniversity } from "./services/createUniversity";
+import { createUniversity } from "./createUniversity";
 
 export interface UniversityCreateDialogProps {
     open: boolean;

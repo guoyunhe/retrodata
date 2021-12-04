@@ -1,5 +1,5 @@
-import { Image } from "../../types/image";
-import { Model } from "../../types/model";
+import { Image } from "../../admin/types/image";
+import { Model } from "../../admin/types/model";
 
 export interface University extends Model {
     slug: string;
@@ -10,4 +10,8 @@ export interface University extends Model {
     contact_name: string | null;
     contact_email: string | null;
     contact_phone: string | null;
+}
+
+interface Window {
+    university: University;
 }

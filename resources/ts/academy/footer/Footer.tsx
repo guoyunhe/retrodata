@@ -15,7 +15,7 @@ export function Footer() {
             py={3}
             sx={{ background: grey["100"] }}
         >
-            &copy; {new Date().getFullYear()} {window.appName}
+            &copy; {new Date().getFullYear()} {window.university.name}
             <Link component={RRLink} to="/about">
                 {t("About")}
             </Link>

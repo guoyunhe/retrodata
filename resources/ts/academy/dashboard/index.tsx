@@ -4,10 +4,10 @@ import Button from "@mui/material/Button";
 import { blueGrey } from "@mui/material/colors";
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { queryUniversityList } from "../../admin/universities/services/queryUniversityList";
-import { University } from "../../admin/universities/types/University";
-import { UniversitiesList } from "../../admin/universities/UniversitiesList";
-import { UniversityCreateDialog } from "../../admin/universities/UniversityCreateDialog";
+import { queryUniversityList } from "../../common/universities/queryUniversityList";
+import { UniversitiesList } from "../../common/universities/UniversitiesList";
+import { University } from "../../common/universities/University";
+import { UniversityCreateDialog } from "../../common/universities/UniversityCreateDialog";
 
 export function Dashboard() {
     const { t } = useTranslation();

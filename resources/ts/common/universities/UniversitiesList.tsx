@@ -1,6 +1,6 @@
 import Grid from "@mui/material/Grid";
 import React from "react";
-import { University } from "./types/University";
+import { University } from "./University";
 import { UniversityCard } from "./UniversityCard";
 
 export interface UniversitiesListProps {

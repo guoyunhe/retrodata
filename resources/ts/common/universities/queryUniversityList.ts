@@ -1,5 +1,5 @@
 import axios from "axios";
-import { University } from "../types/University";
+import { University } from "./University";
 
 export function queryUniversityList() {
     return axios.get<University[]>("/api/universities");
