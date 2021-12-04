@@ -15,9 +15,14 @@ class LaboratoryController extends Controller
     public function index(Request $request)
     {
         $request->validate([
-            'college_id' => 'required|exists:colleges,id',
+            'college_id' => 'exists:colleges,id',
+            'university_id' => 'required|exists:universities,id',
         ]);
-        return Laboratory::where('college_id', $request->input('college_id'))->get();
+        $query = Laboratory::where('university_id', $request->input('university_id'));
+        if ($request->has('college_id')) {
+            $query = $query->where('college_id', $request->input('college_id'));
+        }
+        return $query->get();
     }
 
     /**

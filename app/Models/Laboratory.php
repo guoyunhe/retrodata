@@ -23,7 +23,7 @@ class Laboratory extends Model
      *
      * @var array
      */
-    protected $with = ['logo', 'memberships'];
+    protected $with = ['logo'];
 
     /**
      * Get the logo.
@@ -31,6 +31,14 @@ class Laboratory extends Model
     public function logo()
     {
         return $this->belongsTo(Image::class);
+    }
+
+    /**
+     * Get the university.
+     */
+    public function university()
+    {
+        return $this->belongsTo(University::class);
     }
 
     /**

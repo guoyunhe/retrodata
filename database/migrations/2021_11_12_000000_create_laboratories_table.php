@@ -18,7 +18,8 @@ class CreateLaboratoriesTable extends Migration
             $table->string('slug');
             $table->string('name');
             $table->string('name_en')->nullable();
-            $table->foreignId('college_id')->nullable()->constrained('colleges');
+            $table->foreignId('university_id')->constrained('universities');
+            $table->foreignId('college_id')->constrained('colleges');
             $table->foreignId('logo_id')->nullable()->constrained('images');
             $table->timestamps();
             $table->softDeletes();

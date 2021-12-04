@@ -17,7 +17,10 @@ class LaboratorySeeder extends Seeder
     {
         foreach (College::all() as $college) {
             Laboratory::factory(
-                ['college_id' => $college->id]
+                [
+                    'college_id' => $college->id,
+                    'university_id' => $college->university_id
+                ]
             )->hasMemberships(10)->count(5)->create();
         }
     }

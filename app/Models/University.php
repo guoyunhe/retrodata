@@ -23,7 +23,7 @@ class University extends Model
      *
      * @var array
      */
-    protected $with = ['logo', 'memberships'];
+    protected $with = ['logo'];
 
     /**
      * Get the logo.
