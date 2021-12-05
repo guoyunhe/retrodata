@@ -1,7 +1,7 @@
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import Box from "@mui/system/Box";
-import React from "react";
+import React, { Suspense } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import theme from "../theme";
 import { About } from "./about";
@@ -14,36 +14,31 @@ import { Terms } from "./terms";
 
 export default function App() {
     return (
-        <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <Router>
-                <Box display="flex" flexDirection="column" minHeight="100vh">
-                    <Navbar />
+        <Suspense fallback="Loaidng...">
+            <ThemeProvider theme={theme}>
+                <CssBaseline />
+                <Router>
+                    <Box
+                        display="flex"
+                        flexDirection="column"
+                        minHeight="100vh"
+                    >
+                        <Navbar />
 
-                    <Box flex={1}>
-                        <Routes>
-                            <Route path="/about">
-                                <About />
-                            </Route>
-                            <Route path="/privacy">
-                                <Privacy />
-                            </Route>
-                            <Route path="/terms">
-                                <Terms />
-                            </Route>
+                        <Box flex={1}>
+                            <Routes>
+                                <Route path="/about" element={<About />} />
+                                <Route path="/privacy" element={<Privacy />} />
+                                <Route path="/terms" element={<Terms />} />
+                                <Route path="/" element={<Home />} />
+                                <Route path="*" element={<NotFound />} />
+                            </Routes>
+                        </Box>
 
-                            <Route path="/">
-                                <Home />
-                            </Route>
-                            <Route>
-                                <NotFound />
-                            </Route>
-                        </Routes>
+                        <Footer />
                     </Box>
-
-                    <Footer />
-                </Box>
-            </Router>
-        </ThemeProvider>
+                </Router>
+            </ThemeProvider>
+        </Suspense>
     );
 }

@@ -65,9 +65,7 @@ export default function Navbar({}: NavbarProps) {
                     variant="h6"
                     noWrap
                 >
-                    {(window as any).university?.[
-                        i18n.language === "zh" ? "name" : "name_en"
-                    ] || window.appName}
+                    {t("app-name")}
                 </Link>
                 <div className={classes.sectionDesktop}>
                     <Button color="inherit" component={RRLink} to="/">

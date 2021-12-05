@@ -1,5 +1,6 @@
 {
     "about": "About",
+    "app-name": "LabTool",
     "back-home": "Go back to home page",
     "cancel": "cancel",
     "confirm-password": "Confirm password",
@@ -9,9 +10,11 @@
     "home": "Home",
     "login": "Login",
     "logout": "Logout",
+    "members": "Members",
     "name": "Name",
     "password": "Password",
     "privacy": "Privacy",
+    "reagent": "Reagent",
     "register": "Register",
     "register-agree": "By joining, you agree to the <2>Terms</2> and <6>Privacy Policy</6>",
     "remember-me": "Remember me",

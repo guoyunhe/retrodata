@@ -10,6 +10,7 @@ import { createStyles, makeStyles } from "@mui/styles";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link as RRLink } from "react-router-dom";
+import { TransAttr } from "../../common/locales";
 import { LangMenu } from "../../common/locales/LangMenu";
 import AuthMenu from "../auth/AuthMenu";
 import { SearchBox } from "./SearchBox";
@@ -68,11 +69,7 @@ export function Navbar({}: NavbarProps) {
                     variant="h6"
                     noWrap
                 >
-                    {
-                        window.university[
-                            i18n.language === "zh" ? "name" : "name_en"
-                        ]
-                    }
+                    <TransAttr data={window.university} attr="name" />
                 </Link>
                 <SearchBox />
                 <div className={classes.sectionDesktop}>

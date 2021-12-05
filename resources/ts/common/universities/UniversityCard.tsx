@@ -4,6 +4,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import React from "react";
 import { Link } from "react-router-dom";
+import { TransAttr } from "../locales";
 import { University } from "./University";
 
 export interface UniversityCardProps {
@@ -34,7 +35,7 @@ export function UniversityCard({ university }: UniversityCardProps) {
             <CardContent>
                 <Typography variant="h5">{university.name}</Typography>
                 <Typography variant="subtitle1" color="text.secondary">
-                    {university.name_en}
+                    <TransAttr data={university} attr="name" />
                 </Typography>
             </CardContent>
         </Card>

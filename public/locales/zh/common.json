@@ -1,5 +1,6 @@
 {
     "about": "关于",
+    "app-name": "LabTool",
     "back-home": "返回首页",
     "cancel": "取消",
     "confirm-password": "确认密码",
@@ -9,9 +10,11 @@
     "home": "首页",
     "login": "登录",
     "logout": "注销",
+    "members": "成员",
     "name": "名字",
     "password": "密码",
     "privacy": "隐私",
+    "reagent": "试剂",
     "register": "注册",
     "register-agree": "加入表示您同意<2>条款</2>和<6>隐私政策</6>",
     "remember-me": "记住我",

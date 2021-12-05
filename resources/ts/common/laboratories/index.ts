@@ -1,3 +1,4 @@
+export * from "./fetchLaboratory";
 export * from "./LaboratoriesList";
 export * from "./Laboratory";
 export * from "./LaboratoryCard";

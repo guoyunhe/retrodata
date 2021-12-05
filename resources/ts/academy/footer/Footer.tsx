@@ -4,9 +4,10 @@ import Link from "@mui/material/Link";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link as RRLink } from "react-router-dom";
+import { TransAttr } from "../../common/locales";
 
 export function Footer() {
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
     return (
         <Box
             display="flex"
@@ -15,8 +16,10 @@ export function Footer() {
             py={3}
             sx={{ background: grey["100"] }}
         >
-            &copy; {new Date().getFullYear()}{" "}
-            {window.university[i18n.language === "zh" ? "name" : "name_en"]}
+            <span>
+                &copy;&nbsp;{new Date().getFullYear()}&nbsp;
+                <TransAttr data={window.university} attr="name" />
+            </span>
             <Link component={RRLink} to="/about">
                 {t("about")}
             </Link>

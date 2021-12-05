@@ -3,8 +3,8 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import React from "react";
-import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { TransAttr } from "../locales";
 import { Laboratory } from "./Laboratory";
 
 export interface LaboratoryCardProps {
@@ -12,16 +12,11 @@ export interface LaboratoryCardProps {
 }
 
 export function LaboratoryCard({ laboratory }: LaboratoryCardProps) {
-    const { i18n } = useTranslation();
-    const name =
-        i18n.language === "en" && laboratory.name_en
-            ? laboratory.name_en
-            : laboratory.name;
     return (
         <Card
             sx={{ display: "flex", height: "150px" }}
             component={Link}
-            to={"/laboratory/" + laboratory.id}
+            to={"/laboratories/" + laboratory.id}
             color="primary"
         >
             <CardMedia
@@ -32,15 +27,17 @@ export function LaboratoryCard({ laboratory }: LaboratoryCardProps) {
                     laboratory.logo?.url ||
                     "/img/raychel-sanner-YP2MNNId-Qs-unsplash.jpg"
                 }
-                alt={name}
+                alt="laboratory logo"
                 sx={{
                     flex: "0 0 150px",
                 }}
             />
             <CardContent>
-                <Typography variant="h5">{name}</Typography>
+                <Typography variant="h5">
+                    <TransAttr data={laboratory} attr="name" />
+                </Typography>
                 <Typography variant="subtitle1" color="text.secondary">
-                    {laboratory.college?.name}
+                    <TransAttr data={laboratory.college} attr="name" />
                 </Typography>
             </CardContent>
         </Card>

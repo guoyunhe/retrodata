@@ -1,5 +1,8 @@
 {
     "/js/landing.js": "/js/landing.js",
+    "/js/academy.js": "/js/academy.js",
+    "/js/admin.js": "/js/admin.js",
+    "/js/supply.js": "/js/supply.js",
     "/js/manifest.js": "/js/manifest.js",
     "/js/vendor.js": "/js/vendor.js"
 }
