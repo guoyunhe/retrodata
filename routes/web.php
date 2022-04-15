@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\University;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,28 +21,6 @@ use Illuminate\Support\Facades\Route;
 //     ]);
 // });
 
-Route::domain('admin.' . config('app.domain'))->group(function () {
-    Route::get('/{any?}', function () {
-        return view('admin');
-    })->where('any', '.*');
-});
-
-Route::domain('supply.' . config('app.domain'))->group(function () {
-    Route::get('/{any?}', function () {
-        return view('supply');
-    })->where('any', '.*');
-});
-
-Route::domain('{university}.' . config('app.domain'))->group(function () {
-    Route::get('/{any?}', function (
-        $university
-    ) {
-        return view('academy', [
-            'university' =>  University::firstWhere('slug', $university),
-        ]);
-    })->where('any', '.*');
-});
-
 Route::get('/{any?}', function () {
-    return view('landing');
+    return view('app');
 })->where('any', '.*');

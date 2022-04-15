@@ -1,5 +1,5 @@
 /node_modules
-/public/js/*.js.map
+/public/js
 /public/hot
 /public/storage
 /storage/*.key

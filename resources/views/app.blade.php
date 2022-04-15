@@ -14,18 +14,15 @@
     <script>
         window.appName = "<?= config('app.name') ?>";
         window.appUrl = "<?= config('app.url') ?>";
-        window.appDomain = "<?= config('app.domain') ?>";
         window.user = <?= auth()->user() ? auth()->user()->toJson() : 'null' ?>;
-        window.university = <?= !empty($university) ? $university->toJson() : 'null' ?>;
     </script>
-
-    <script src="{{ asset('js/manifest.js') }}" defer></script>
-    <script src="{{ asset('js/vendor.js') }}" defer></script>
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ mix('js/manifest.js') }}" defer></script>
+    <script src="{{ mix('js/vendor.js') }}" defer></script>
+    <script src="{{ mix('js/index.js') }}" defer></script>
 </head>
 
 <body>
-    <div id="app-root"></div>
+    <div id="root"></div>
 </body>
 
 </html>

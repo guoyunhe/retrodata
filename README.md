@@ -1,4 +1,4 @@
-# LIBTOOL - Reagent Management System
+# LIBTOOL - RetroData Management System
 
 ## Local Development
 
@@ -6,7 +6,8 @@
 
 The front-end app is a React-based SPA. Technology we adopt:
 
--   Laravel Mix (webpack toolchain)
+-   pnpm
+-   Laravel Mix
 -   TypeScript
 -   React
 -   React Router
@@ -14,17 +15,7 @@ The front-end app is a React-based SPA. Technology we adopt:
 -   axios
 -   i18next
 
-Most front-end code rests in `resources/ts/` folder. And it's divided into four
-parts, for different types of users:
-
--   `academy` - for university users <https://aalto.labtool.com>
--   `supply` - for reagent suppliers <https://supply.labtool.com>
--   `admin` - for platform administrators <https://admin.labtool.com>
--   `landing` - for guests <https://labtool.com>
-
-To start development environment:
-
 ```
 sail up
-npm run watch
+npm start
 ```
