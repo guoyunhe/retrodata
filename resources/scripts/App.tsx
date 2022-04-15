@@ -28,25 +28,21 @@ export function App() {
 
                         <Box flex={1}>
                             <Routes>
-                                <Route path="/login">
-                                    <Login />
-                                </Route>
-                                <Route path="/register">
-                                    <Register />
-                                </Route>
-                                <Route path="/email/verify">
-                                    <VerifyEmail />
-                                </Route>
-
-                                <Route path="/settings">
-                                    <Settings />
-                                </Route>
-                                <Route path="/">
-                                    <Home />
-                                </Route>
-                                <Route>
-                                    <NotFound />
-                                </Route>
+                                <Route path="/login" element={<Login />} />
+                                <Route
+                                    path="/register"
+                                    element={<Register />}
+                                />
+                                <Route
+                                    path="/email/verify"
+                                    element={<VerifyEmail />}
+                                />
+                                <Route
+                                    path="/settings"
+                                    element={<Settings />}
+                                />
+                                <Route path="/" element={<Home />} />
+                                <Route element={<NotFound />} />
                             </Routes>
                         </Box>
                     </Box>
