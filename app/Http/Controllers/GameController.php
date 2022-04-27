@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\GameCollection;
 use App\Models\Game;
 use Illuminate\Http\Request;
 
@@ -12,9 +13,9 @@ class GameController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        return new GameCollection(Game::paginate($request->input('page_size', 12)));
     }
 
     /**

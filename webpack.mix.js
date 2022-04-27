@@ -11,6 +11,9 @@ const mix = require("laravel-mix");
  |
  */
 
-mix.ts("resources/scripts/index.tsx", "public/js").react().version().extract();
+mix.ts("resources/scripts/index.tsx", "public/js")
+    .react()
+    .version()
+    .extract(["react", "react-dom"]);
 
 mix.disableNotifications();

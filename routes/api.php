@@ -3,10 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\CollegeController;
+use App\Http\Controllers\GameController;
 use App\Http\Controllers\ImageController;
-use App\Http\Controllers\LaboratoryController;
-use App\Http\Controllers\UniversityController;
+use App\Http\Controllers\SeriesController;
+use App\Http\Controllers\TitleController;
 use App\Models\User;
 
 /*
@@ -20,10 +20,12 @@ use App\Models\User;
 |
 */
 
+// Get current user profile & settings
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// Update current user profile & settings
 Route::middleware('auth:sanctum')->put('/user', function (Request $request) {
     $request->validate([
         'name' => 'required|min:2|max:100',
@@ -40,10 +42,10 @@ Route::get('/users', function (Request $request) {
     return User::all();
 });
 
+Route::resource('games', GameController::class);
+
 Route::resource('images', ImageController::class);
 
-Route::resource('universities', UniversityController::class);
+Route::resource('titles', TitleController::class);
 
-Route::resource('colleges', CollegeController::class);
-
-Route::resource('laboratories', LaboratoryController::class);
+Route::resource('series', SeriesController::class);
