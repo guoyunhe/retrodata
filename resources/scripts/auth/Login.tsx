@@ -6,7 +6,6 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
-import { makeStyles } from "@mui/styles";
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link as RRLink, Navigate } from "react-router-dom";
@@ -14,14 +13,6 @@ import { useAuth } from "./AuthContext";
 import AuthLayout from "./AuthLayout";
 import { fetchUser } from "./fetchUser";
 import { login } from "./login";
-
-const useStyles = makeStyles({
-    buttonRow: {
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-    },
-});
 
 export interface LoginErrors {
     message: string;
@@ -32,7 +23,6 @@ export interface LoginErrors {
 }
 
 export default function Login() {
-    const classes = useStyles();
     const { user, setUser } = useAuth();
     const { t } = useTranslation();
     const [loading, setLoading] = useState(false);
@@ -97,7 +87,11 @@ export default function Login() {
                         }
                         label={t("remember-me").toString()}
                     />
-                    <Box className={classes.buttonRow}>
+                    <Box sx={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+    }}>
                         <Button
                             type="submit"
                             variant="contained"

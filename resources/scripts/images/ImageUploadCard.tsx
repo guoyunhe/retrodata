@@ -1,53 +1,15 @@
 import CloudUploadIcon from "@mui/icons-material/CloudUploadOutlined";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
+import { Theme } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardMedia from "@mui/material/CardMedia";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import { createStyles, makeStyles } from "@mui/styles";
 import React, { ChangeEvent, useRef, useState } from "react";
 import { readFileAsDataString } from "./readFileAsDataString";
 
 const size = 200;
-
-const useStyles = makeStyles((theme: any) =>
-    createStyles({
-        root: {
-            position: "relative",
-            width: size,
-            height: size,
-            marginTop: theme.spacing(2),
-        },
-        actionArea: {
-            width: "100%",
-            height: "100%",
-        },
-        image: {
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            objectPosition: "center",
-        },
-        placeholder: {
-            width: "100%",
-            height: "100%",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-        },
-        placeholderIcon: {
-            fontSize: theme.spacing(5),
-        },
-        removeButton: {
-            position: "absolute",
-            right: theme.spacing(0.5),
-            top: theme.spacing(0.5),
-            background: theme.palette.background.paper + " !important",
-        },
-    })
-);
 
 export interface ImageUploadCardProps {
     image?: string;
@@ -62,7 +24,6 @@ export function ImageUploadCard({
     onChange,
     onRemove,
 }: ImageUploadCardProps) {
-    const classes = useStyles();
     const input = useRef<HTMLInputElement>(null);
     const [localImage, setLocalImage] = useState<string | null>(null);
 
@@ -95,20 +56,49 @@ export function ImageUploadCard({
     };
 
     return (
-        <Card className={classes.root} variant="outlined">
+        <Card
+            variant="outlined"
+            sx={{
+                position: "relative",
+                width: size,
+                height: size,
+                marginTop: (theme: Theme) => theme.spacing(2),
+            }}
+        >
             <CardActionArea
-                className={classes.actionArea}
                 onClick={handleSelect}
+                sx={{
+                    width: "100%",
+                    height: "100%",
+                }}
             >
                 {localImage || image ? (
                     <CardMedia
-                        className={classes.image}
                         component="img"
                         image={localImage || image}
+                        sx={{
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
+                            objectPosition: "center",
+                        }}
                     />
                 ) : (
-                    <div className={classes.placeholder}>
-                        <CloudUploadIcon className={classes.placeholderIcon} />
+                    <div
+                        style={{
+                            width: "100%",
+                            height: "100%",
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                            alignItems: "center",
+                        }}
+                    >
+                        <CloudUploadIcon
+                            sx={{
+                                fontSize: (theme: Theme) => theme.spacing(5),
+                            }}
+                        />
                         <Typography>Upload Image</Typography>
                     </div>
                 )}
@@ -123,9 +113,15 @@ export function ImageUploadCard({
             />
             {localImage && (
                 <IconButton
-                    className={classes.removeButton}
                     size="small"
                     onClick={handleRemove}
+                    sx={{
+                        position: "absolute",
+                        right: (theme: Theme) => theme.spacing(0.5),
+                        top: (theme: Theme) => theme.spacing(0.5),
+                        background: (theme: Theme) =>
+                            theme.palette.background.paper + " !important",
+                    }}
                 >
                     <RemoveCircleIcon />
                 </IconButton>

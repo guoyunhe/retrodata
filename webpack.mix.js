@@ -11,9 +11,18 @@ const mix = require("laravel-mix");
  |
  */
 
-mix.ts("resources/scripts/index.tsx", "public/js")
-    .react()
-    .version()
-    .extract(["react", "react-dom"]);
+mix.ts("resources/scripts/index.tsx", "public/js").react().version().extract();
 
-mix.disableNotifications();
+// fix hmr in sail environment
+mix.options({
+    hmrOptions: {
+        host: "localhost",
+        port: 8080,
+    },
+});
+mix.webpackConfig({
+    devServer: {
+        host: "0.0.0.0",
+        port: 8080,
+    },
+});

@@ -8,17 +8,17 @@
 git submodule init --recursive
 cp .env.example .env
 composer install
-pnpm i
+npm i
 sail up -d
 sail artisan migrate --seeding
-sail artisan
+sail down
 ```
 
 ### Start Server
 
 ```
 sail up -d
-sail start
+sail npm start
 ```
 
 Visit http://localhost
